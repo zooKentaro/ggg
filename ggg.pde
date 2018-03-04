@@ -1,11 +1,10 @@
 void settings() {
-    size(Config.xsize,Config.ysize);
+    size(Config.SCREEN_WIDTH,Config.SCREEN_HEGTH);
 }
 
 void setup() {
-    fill(Config.fill);
 }
 
 void draw() {
-background(Config.background_color);
+    background(Config.background_color);
 }

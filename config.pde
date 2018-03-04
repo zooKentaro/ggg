@@ -1,6 +1,5 @@
 public class Config {
-    static final int xsize = 900;
-    static final int ysize = 600;
-    static final int fill = 100;
-    static final int background_color = 255;
+    static final int SCREEN_WIDTH = 900;
+    static final int SCREEN_HIGTH = 600;
+    static final int BACKGROUND_RESET_COLOR = 255;
 }
