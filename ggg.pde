@@ -1,7 +1,10 @@
+void settings() {
+    size(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
+}
+
 void setup() {
-    size(900, 600);
 }
 
 void draw() {
-
+    background(Config.BACKGROUND_RESET_COLOR);
 }
