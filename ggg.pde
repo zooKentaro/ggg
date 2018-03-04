@@ -1,7 +1,11 @@
+void settings() {
+    size(Config.xsize,Config.ysize);
+}
+
 void setup() {
-    size(900, 600);
+    fill(Config.fill);
 }
 
 void draw() {
-
+background(Config.background_color);
 }
