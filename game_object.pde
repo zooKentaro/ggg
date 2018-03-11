@@ -11,8 +11,8 @@ abstract class GameObject {
     public boolean is_alive = true;
 
     // オブジェクトを描画する
-    abstract void draw();
+    abstract void draw(Game g);
 
     // オブジェクトを破壊する (消す)
-    abstract void destroy();
+    abstract void destroy(Game g);
 }
