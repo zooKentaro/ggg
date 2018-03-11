@@ -1,11 +1,11 @@
 class Player extends GameObject {
-    public int width = 20;
-    public int height = 20;
     public int speed = 3;
 
     public Player(int x, int y) {
         this.x = x;
         this.y = y;
+        this.width = 20;
+        this.height = 20;
     }
 
     public void draw(Game g) {
