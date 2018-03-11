@@ -1,14 +1,14 @@
 class Game {
     // 現在のシーン
-    Scene current_scene;
+    public Scene current_scene;
     // スタートシーン
-    Scene start_scene;
+    protected Scene start_scene;
     // メインシーン
-    Scene main_scene;
+    protected Scene main_scene;
     // クリアシーン
-    Scene clear_scene;
+    protected Scene clear_scene;
     // ゲームオーバーシーン
-    Scene over_scene;
+    protected Scene over_scene;
 
     /**
      * ゲームをセットアップする
