@@ -28,7 +28,7 @@ class Game {
      * ゲームを描画する
      */
     public void play() {
-        this.current_scene.draw();
+        this.current_scene.draw(this);
     }
 
     /**
