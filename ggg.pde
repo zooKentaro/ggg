@@ -9,19 +9,23 @@ void setup() {
     game.setup();
 }
 
- void keyPressed() {
-        if (keyCode == RIGHT)  game.key.right = true;
-        if (keyCode == LEFT)   game.key.left  = true;
-        if (keyCode == DOWN)   game.key.down  = true;
-        if (keyCode == UP)     game.key.up    = true;
-    }
+void keyPressed() {
+    game.key.is_pressed = true;
 
-    void keyReleased() {
-        if (keyCode == RIGHT)  game.key.right  = false;
-        if (keyCode == LEFT)   game.key.left   = false;
-        if (keyCode == DOWN)   game.key.down   = false;
-        if (keyCode == UP)     game.key.up     = false;
-    }
+    if (keyCode == RIGHT) game.key.right = true;
+    if (keyCode == LEFT)  game.key.left  = true;
+    if (keyCode == DOWN)  game.key.down  = true;
+    if (keyCode == UP)    game.key.up    = true;
+}
+
+void keyReleased() {
+    game.key.is_pressed = false;
+
+    if (keyCode == RIGHT) game.key.right = false;
+    if (keyCode == LEFT)  game.key.left  = false;
+    if (keyCode == DOWN)  game.key.down  = false;
+    if (keyCode == UP)    game.key.up    = false;
+}
 
 void draw() {
     background(Config.BACKGROUND_RESET_COLOR);
