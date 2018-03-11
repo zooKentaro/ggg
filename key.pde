@@ -9,4 +9,6 @@ class Key {
     public boolean up;
     // キーを押しているかどうか
     public boolean is_pressed;
+    // enterキーを押しているかどうか
+    public boolean enter;
 }
