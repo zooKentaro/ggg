@@ -7,8 +7,8 @@ class Key {
     public boolean down;
     // 上キーを押しているかどうか
     public boolean up;
-    // キーを押しているかどうか
-    public boolean is_pressed;
     // enterキーを押しているかどうか
     public boolean enter;
+    // キーを押しているかどうか
+    public boolean is_pressed;
 }
