@@ -1,6 +1,6 @@
 class StartScene extends Scene {
     @Override
-    public void setup() {
+    public void setup(Game g) {
         //
     }
 

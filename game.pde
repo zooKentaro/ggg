@@ -60,7 +60,9 @@ class Game {
                 break;
             case SceneNum.OVER:
                 this.current_scene = this.over_scene;
+                break;
         }
+        this.current_scene.setup(this);
     }
 
     /**

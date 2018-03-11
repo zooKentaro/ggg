@@ -1,0 +1,25 @@
+class Player extends GameObject {
+    public int width = 20;
+    public int height = 20;
+    public int speed = 3;
+
+    public Player(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void draw(Game g) {
+        // 動かせる
+        if (g.key.left)  this.x -= speed;
+        if (g.key.right) this.x += speed;
+        if (g.key.up)    this.y -= speed;
+        if (g.key.down)  this.y += speed;
+
+        fill(0, 0, 255);
+        ellipse(this.x, this.y, this.width, this.height);
+    }
+
+    public void destroy(Game g) {
+        this.is_alive = false;
+    }
+}
