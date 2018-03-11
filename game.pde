@@ -9,6 +9,8 @@ class Game {
     protected Scene clear_scene;
     // ゲームオーバーシーン
     protected Scene over_scene;
+    // keyを受付
+    public Key key;
 
     /**
      * ゲームをセットアップする
@@ -19,7 +21,8 @@ class Game {
         this.main_scene = new MainScene();
         this.clear_scene = new ClearScene();
         this.over_scene = new OverScene();
-
+        // keyを初期化
+        this.key = new Key();
         // スタート画面で初期化
         this.changeScene(SceneNum.START);
     }
