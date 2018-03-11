@@ -1,5 +1,5 @@
 class Player extends GameObject {
-    public int speed = 3;
+    public int speed = 9;
 
     public Player(int x, int y) {
         this.x = x;
@@ -20,6 +20,11 @@ class Player extends GameObject {
     }
 
     public void destroy(Game g) {
+
+    }
+
+    public void onHit(Game g, GameObject object) {
+        g.changeScene(SceneNum.OVER);
         this.is_alive = false;
     }
 }

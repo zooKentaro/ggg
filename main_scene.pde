@@ -1,6 +1,9 @@
 class MainScene extends Scene {
     @Override
     public void setup(Game g) {
+        for (int i = 0; i < 60; i++) {
+            g.spawn(new Enemy(0, Config.SCREEN_HEIGHT / 2));
+        }
         g.spawn(new Player(Config.SCREEN_WIDTH / 2, Config.SCREEN_HEIGHT / 2));
     }
 
@@ -22,7 +25,7 @@ class MainScene extends Scene {
                         break;
                     }
                     // 当たっているかどうかを調べる
-                    g.objects[i].checkHitting(g.objects[j]);
+                    g.objects[i].checkHitting(g, g.objects[j]);
                 }
             }
         }
