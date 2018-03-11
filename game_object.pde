@@ -15,4 +15,30 @@ abstract class GameObject {
 
     // オブジェクトを破壊する (消す)
     abstract void destroy(Game g);
+
+    /**
+     * objectと接触しているかどうかを確認する
+     * 接触していれば、対象のオブジェクトを引数に
+     * onHit() を呼び出す
+     */
+    public void checkHitting(GameObject object) {
+        // 同じインスタンス同士ではfalse
+        if (this.hashCode() == object.hashCode()) {
+            return;
+        }
+
+        // 座標から当たり判定
+        if (
+            this.x   < object.x + object.width &&
+            object.x < this.x + this.width &&
+            this.y   < object.y + object.height &&
+            object.y < this.y + this.height
+        ) {
+            this.onHit(object);
+        }
+    }
+
+    public void onHit(GameObject object) {
+        //
+    }
 }
