@@ -9,6 +9,8 @@ abstract class GameObject {
     public int height = 0;
     // オブジェクトがゲーム上に存在可能かどうか
     public boolean is_alive = true;
+    // 画像
+    public PImage texture;
 
     // オブジェクトを描画する
     abstract void draw(Game g);
