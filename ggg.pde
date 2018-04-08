@@ -18,7 +18,6 @@ void keyPressed() {
     if (keyCode == UP)    game.key.up    = true;
     if (keyCode == ENTER) game.key.enter = true;
     if (keyCode == ' ')   game.key.space = true;
-
 }
 
 void keyReleased() {

@@ -10,7 +10,7 @@ class Bullet extends GameObject {
         }
 
     public void draw(Game g) {
-    ellipse(this.x, this.y, this.width, this.height); //弾の動き
+        ellipse(this.x, this.y, this.width, this.height); //弾の動き
         this.x += this.speed;
     }
 

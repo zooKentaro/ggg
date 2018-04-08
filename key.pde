@@ -9,7 +9,7 @@ class Key {
     public boolean up;
     // enterキーを押しているかどうか
     public boolean enter;
-    //spaceキーを押しているかどうか
+    // spaceキーを押しているかどうか
     public boolean space;
     // キーを押しているかどうか
     public boolean is_pressed;
