@@ -11,6 +11,8 @@ abstract class GameObject {
     public boolean is_alive = true;
     // 画像
     public PImage texture;
+    // ラベル
+    public String label = "";
 
     // オブジェクトを描画する
     abstract void draw(Game g);

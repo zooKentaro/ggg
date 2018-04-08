@@ -6,6 +6,7 @@ class Enemy extends GameObject {
         this.y = y;
         this.width = 60;
         this.height = 60;
+        this.label = "enemy";
         this.texture = loadImage("enemy.png");
     }
 
