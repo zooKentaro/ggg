@@ -1,11 +1,13 @@
 class Player extends GameObject {
-    public int speed = 3;
+    public int speed = 4;
 
     public Player(int x, int y) {
         this.x = x;
         this.y = y;
-        this.width = 20;
-        this.height = 20;
+        this.width = 60;
+        this.height = 60;
+        this.label = "enemy";
+        this.texture = loadImage("dragoon.png");
     }
 
     public void draw(Game g) {
@@ -15,7 +17,7 @@ class Player extends GameObject {
         if (g.key.up)    this.y -= speed;
         if (g.key.down)  this.y += speed;
 
-        ellipse(this.x, this.y, this.width, this.height);
+        image(this.texture, this.x, this.y, this.width, this.height);
 
         if (g.key.space) {
             g.spawn(new Bullet(this.x, this.y));
