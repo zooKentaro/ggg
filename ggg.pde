@@ -17,6 +17,8 @@ void keyPressed() {
     if (keyCode == DOWN)  game.key.down  = true;
     if (keyCode == UP)    game.key.up    = true;
     if (keyCode == ENTER) game.key.enter = true;
+    if (keyCode == ' ')   game.key.space = true;
+
 }
 
 void keyReleased() {
@@ -27,6 +29,7 @@ void keyReleased() {
     if (keyCode == DOWN)  game.key.down  = false;
     if (keyCode == UP)    game.key.up    = false;
     if (keyCode == ENTER) game.key.enter = false;
+    if (keyCode == ' ')   game.key.space = false;
 }
 
 void draw() {
