@@ -25,7 +25,7 @@ abstract class GameObject {
      * 接触していれば、対象のオブジェクトを引数に
      * onHit() を呼び出す
      */
-    public void checkHitting(GameObject object) {
+    public void checkHitting(Game g, GameObject object) {
         // 同じインスタンス同士ではfalse
         if (this.hashCode() == object.hashCode()) {
             return;
@@ -38,11 +38,11 @@ abstract class GameObject {
             this.y   < object.y + object.height &&
             object.y < this.y + this.height
         ) {
-            this.onHit(object);
+            this.onHit(g, object);
         }
     }
 
-    public void onHit(GameObject object) {
+    public void onHit(Game g, GameObject object) {
         //
     }
 }

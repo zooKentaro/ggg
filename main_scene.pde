@@ -23,7 +23,7 @@ class MainScene extends Scene {
                         break;
                     }
                     // 当たっているかどうかを調べる
-                    g.objects[i].checkHitting(g.objects[j]);
+                    g.objects[i].checkHitting(g, g.objects[j]);
                 }
             }
         }
