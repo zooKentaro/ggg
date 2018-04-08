@@ -15,8 +15,14 @@ class Player extends GameObject {
         if (g.key.up)    this.y -= speed;
         if (g.key.down)  this.y += speed;
 
-        fill(0, 0, 255);
-        ellipse(this.x, this.y, this.width, this.height);
+            ellipse(this.x, this.y, this.width, this.height);
+            if(g.key.enter == true){
+        }
+
+        if (g.key.space == true) {
+            Bullet bullet = new Bullet(this.x, this.y);
+            g.spawn(bullet);
+            }
     }
 
     public void destroy(Game g) {
