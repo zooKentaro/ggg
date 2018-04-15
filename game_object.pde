@@ -44,14 +44,16 @@ abstract class GameObject {
         }
 
         // 座標から当たり判定
-        if (
-            this.x   < object.x + object.width &&
-            object.x < this.x + this.width &&
-            this.y   < object.y + object.height &&
-            object.y < this.y + this.height
-        ) {
+        if (this.isHitting(object)) {
             this.onHit(object);
         }
+    }
+
+    public boolean isHitting(GameObject object) {
+        return this.x < object.x + object.width &&
+            object.x < this.x + this.width &&
+            this.y   < object.y + object.height &&
+            object.y < this.y + this.height;
     }
 
     public void onHit(GameObject object) {

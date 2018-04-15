@@ -10,21 +10,21 @@ class Player2 extends GameObject {
         this.texture = loadImage("bullet.png");
     }
 
-    public void draw(Game g) {
-        // 動かせる
-        if (g.key.left2)  this.x -= speed;
-        if (g.key.right2) this.x += speed;
-        if (g.key.up2)    this.y -= speed;
-        if (g.key.down2)  this.y += speed;
-
-        image(this.texture, this.x, this.y, this.width, this.height);
-
-        if (g.key.space) {
-            g.spawn(new Bullet(this.x, this.y));
-        }
+    @Override
+    protected void update() {
+        if (game.key.left2)  this.x -= speed;
+        if (game.key.right2) this.x += speed;
+        if (game.key.up2)    this.y -= speed;
+        if (game.key.down2)  this.y += speed;
     }
 
-    public void destroy(Game g) {
+    @Override
+    protected void draw() {
+        image(this.texture, this.x, this.y, this.width, this.height);
+    }
+
+    @Override
+    public void destroy() {
         this.is_alive = false;
     }
 }

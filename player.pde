@@ -13,22 +13,30 @@ class Player extends Mob {
 
     @Override
     protected void update() {
-        // 動かせる
         if (game.key.left)  this.x -= speed;
         if (game.key.right) this.x += speed;
         if (game.key.up)    this.y -= speed;
         if (game.key.down)  this.y += speed;
 
         if (game.key.space && game.recoder.get("PUT_BLOCK") == 0) {
+            GameObject block = new Block(this.x + this.width, this.y);
+
+            // 特定のラベルが付いているオブジェクトの上には置けないようにする.
+            String labels[] = {"player", "block"};
+            ArrayList<GameObject> obj = game.findByLabels(labels);
+            for (int i = 0; i < obj.size(); i++) {
+                if (g.isHitting(obj.get(i))) {
+                    return;
+                }
+            }
             game.recoder.set("PUT_BLOCK", this.break_time_ms);
-            game.spawn(new Block(this.x, this.y));
+            game.spawn(block);
         }
     }
 
     @Override
     protected void draw() {
         image(this.texture, this.x, this.y, this.width, this.height);
-        ellipse(this.x, this.y, this.width, this.height);
     }
 
     @Override

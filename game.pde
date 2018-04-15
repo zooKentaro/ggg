@@ -83,4 +83,20 @@ class Game {
             }
         }
     }
+
+    /**
+     * 指定されたラベルを持つGameobjectを全て取得する
+     */
+    public ArrayList<GameObject> findByLabels(String[] labels) {
+        ArrayList<GameObject> obj = new ArrayList<GameObject>();
+        for (int i = 0; i < labels.length; i++) {
+            for (int j = 0; j < this.objects.length; j++) {
+                if (this.objects[j] == null) continue;
+                if (this.objects[j].label.equals(labels[i]) && this.objects[j].is_alive == true) {
+                    obj.add(this.objects[j]);
+                }
+            }
+        }
+        return obj;
+    }
 }

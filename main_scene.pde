@@ -12,7 +12,7 @@ class MainScene extends Scene {
         for (int i = 0; i < game.objects.length; i++) {
             // null の場合はその場で終了
             if (game.objects[i] == null) {
-                break;
+                continue;
             }
             if (game.objects[i].is_alive == true) {
                 // オブジェクト描画
@@ -21,7 +21,7 @@ class MainScene extends Scene {
                 for (int j = 0; j < game.objects.length; j++) {
                     // null の場合はその場で終了
                     if (game.objects[j] == null) {
-                        break;
+                        continue;
                     }
                     // 当たっているかどうかを調べる
                     game.objects[i].checkHitting(game.objects[j]);
