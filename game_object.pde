@@ -14,11 +14,23 @@ abstract class GameObject {
     // ラベル
     public String label = "";
 
+    // オブジェクトを更新する
+    protected abstract void update();
+
     // オブジェクトを描画する
-    abstract void draw();
+    protected abstract void draw();
 
     // オブジェクトを破壊する (消す)
-    abstract void destroy();
+    public abstract void destroy();
+
+    /**
+     * ゲーム内に存在するオブジェクトとして更新・描画する
+     */
+    public void run() {
+        this.update();
+
+        this.draw();
+    }
 
     /**
      * objectと接触しているかどうかを確認する

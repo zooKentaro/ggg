@@ -16,7 +16,7 @@ class MainScene extends Scene {
             }
             if (game.objects[i].is_alive == true) {
                 // オブジェクト描画
-                game.objects[i].draw();
+                game.objects[i].run();
                 // 当たり判定
                 for (int j = 0; j < game.objects.length; j++) {
                     // null の場合はその場で終了

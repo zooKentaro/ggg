@@ -10,20 +10,26 @@ class Player extends GameObject {
         this.texture = loadImage("dragoon.png");
     }
 
-    public void draw() {
+    @Override
+    protected void update() {
         // 動かせる
         if (game.key.left)  this.x -= speed;
         if (game.key.right) this.x += speed;
         if (game.key.up)    this.y -= speed;
         if (game.key.down)  this.y += speed;
 
-        image(this.texture, this.x, this.y, this.width, this.height);
-
         if (game.key.space) {
             game.spawn(new Bullet(this.x, this.y));
         }
     }
 
+    @Override
+    protected void draw() {
+        image(this.texture, this.x, this.y, this.width, this.height);
+        ellipse(this.x, this.y, this.width, this.height);
+    }
+
+    @Override
     public void destroy() {
         this.is_alive = false;
     }

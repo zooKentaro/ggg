@@ -10,11 +10,18 @@ class Enemy extends GameObject {
         this.texture = loadImage("enemy.png");
     }
 
-    public void draw() {
+    @Override
+    public void update()
+    {
         this.x -= this.speed;
+    }
+
+    @Override
+    public void draw() {
         image(this.texture, this.x, this.y, this.width, this.height);
     }
 
+    @Override
     public void destroy() {
         this.is_alive = false;
     }
