@@ -4,8 +4,8 @@ class Block extends GameObject {
     public Block(int x, int y) {
         this.x = x;
         this.y = y;
-        this.width = 100;
-        this.height = 100;
+        this.width = 40;
+        this.height = 40;
         this.label = "block";
     }
 

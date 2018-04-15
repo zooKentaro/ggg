@@ -1,5 +1,6 @@
 class Player extends Mob {
     public int speed = 4;
+    public int break_time_ms = 500;
 
     public Player(int x, int y) {
         this.x = x;
@@ -18,7 +19,8 @@ class Player extends Mob {
         if (game.key.up)    this.y -= speed;
         if (game.key.down)  this.y += speed;
 
-        if (game.key.space) {
+        if (game.key.space && game.recoder.get("PUT_BLOCK") == 0) {
+            game.recoder.set("PUT_BLOCK", this.break_time_ms);
             game.spawn(new Block(this.x, this.y));
         }
     }

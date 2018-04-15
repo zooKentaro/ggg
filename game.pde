@@ -11,6 +11,8 @@ class Game {
     protected Scene over_scene;
     // keyを受付
     public Key key;
+    // タイムレコーダー
+    public TimeRecorder recoder;
 
     // ゲーム内に登場する全てのオブジェクトを格納する配列
     public GameObject objects[];
@@ -30,6 +32,9 @@ class Game {
 
         // オブジェクト配列初期化
         this.objects = new GameObject[Config.MAX_OBJECT_NUM];
+
+        // タイムレコーダーを初期化
+        this.recoder = new TimeRecorder();
 
         // スタート画面で初期化
         this.changeScene(SceneNum.START);
