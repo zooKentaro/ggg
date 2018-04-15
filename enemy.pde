@@ -10,12 +10,12 @@ class Enemy extends GameObject {
         this.texture = loadImage("enemy.png");
     }
 
-    public void draw(Game g) {
+    public void draw() {
         this.x -= this.speed;
         image(this.texture, this.x, this.y, this.width, this.height);
     }
 
-    public void destroy(Game g) {
+    public void destroy() {
         this.is_alive = false;
     }
 }

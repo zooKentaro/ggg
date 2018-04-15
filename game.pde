@@ -39,7 +39,7 @@ class Game {
      * ゲームを描画する
      */
     public void play() {
-        this.current_scene.draw(this);
+        this.current_scene.draw();
     }
 
     /**
@@ -62,7 +62,7 @@ class Game {
                 this.current_scene = this.over_scene;
                 break;
         }
-        this.current_scene.setup(this);
+        this.current_scene.setup();
     }
 
     /**

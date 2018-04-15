@@ -9,12 +9,12 @@ class Bullet extends GameObject {
         this.height = 5;
     }
 
-    public void draw(Game g) {
+    public void draw() {
         ellipse(this.x, this.y, this.width, this.height); //弾の動き
         this.x += this.speed;
     }
 
-    public void destroy(Game g) {
+    public void destroy() {
         this.is_alive = false;
     }
 }

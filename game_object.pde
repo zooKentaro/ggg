@@ -15,17 +15,17 @@ abstract class GameObject {
     public String label = "";
 
     // オブジェクトを描画する
-    abstract void draw(Game g);
+    abstract void draw();
 
     // オブジェクトを破壊する (消す)
-    abstract void destroy(Game g);
+    abstract void destroy();
 
     /**
      * objectと接触しているかどうかを確認する
      * 接触していれば、対象のオブジェクトを引数に
      * onHit() を呼び出す
      */
-    public void checkHitting(Game g, GameObject object) {
+    public void checkHitting(GameObject object) {
         // 同じインスタンス同士ではfalse
         if (this.hashCode() == object.hashCode()) {
             return;
@@ -38,11 +38,11 @@ abstract class GameObject {
             this.y   < object.y + object.height &&
             object.y < this.y + this.height
         ) {
-            this.onHit(g, object);
+            this.onHit(object);
         }
     }
 
-    public void onHit(Game g, GameObject object) {
+    public void onHit(GameObject object) {
         //
     }
 }
