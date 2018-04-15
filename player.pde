@@ -19,7 +19,7 @@ class Player extends Mob {
         if (game.key.down)  this.y += speed;
 
         if (game.key.space) {
-            game.spawn(new Bullet(this.x, this.y));
+            game.spawn(new Block(this.x, this.y));
         }
     }
 
