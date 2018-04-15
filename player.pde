@@ -1,4 +1,4 @@
-class Player extends GameObject {
+class Player extends Mob {
     public int speed = 4;
 
     public Player(int x, int y) {
