@@ -13,4 +13,12 @@ class Key {
     public boolean space;
     // キーを押しているかどうか
     public boolean is_pressed;
+    //dキーを押しているかどうか
+    public boolean right2;
+    //aキーを押しているかどうか
+    public boolean left2;
+    //sキーを押しているかどうか
+    public boolean down2;
+    //wキーを押しているかどうか
+    public boolean up2;
 }
