@@ -8,10 +8,10 @@ abstract class Mob extends GameObject {
     public boolean lock_left  = false;
 
     public void onHit(GameObject object) {
-        this.lock_left  = object.x + object.width >= this.x;
-        this.lock_right = object.x <= this.x + this.width;
-        this.lock_up    = object.y + object.height >= this.y;
-        this.lock_down  = object.y <= this.y + this.height;
+        this.lock_left  = object.x + object.width > this.x;
+        this.lock_right = object.x < this.x + this.width;
+        this.lock_up    = object.y + object.height > this.y;
+        this.lock_down  = object.y < this.y + this.height;
 
         if (this.lock_right && this.lock_left) {
             if (object.x > this.x) {

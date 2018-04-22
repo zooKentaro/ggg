@@ -28,7 +28,13 @@ class Player extends Mob implements ControllerInterface {
 
     @Override
     protected void draw() {
-        image(this.texture, this.x, this.y, this.width, this.height);
+        image(
+            this.texture,
+            this.x - this.margin_width,
+            this.y - this.margin_height,
+            this.width + this.margin_width * 2,
+            this.height + this.margin_height * 2
+        );
     }
 
     @Override

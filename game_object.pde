@@ -7,6 +7,10 @@ abstract class GameObject {
     public int width = 0;
     // オブジェクトの縦幅 (px)
     public int height = 0;
+    // オブジェクトの描画領域の上下マージン
+    public int margin_width = 0;
+    // オブジェクトの描画領域の上下マージン
+    public int margin_height = 0;
     // オブジェクトがゲーム上に存在可能かどうか
     public boolean is_alive = true;
     // 画像
