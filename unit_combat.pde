@@ -11,7 +11,6 @@ class UnitCombat extends Unit {
         // タイムレコーダに格納するキー, 他のユニットとはインスタンスのハッシュ値で区別する
         String key = "UNIT_COMBAT_ACTION_" + this.hashCode();
 
-        println(game.recoder.get(key));
         if (game.recoder.get(key) == 0) {
             game.recoder.set(key, this.action_interval_ms);
             this.action();
