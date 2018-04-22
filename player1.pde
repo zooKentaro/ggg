@@ -4,8 +4,8 @@ class Player1 extends Player {
     public Player1(int x, int y) {
         this.x = x;
         this.y = y;
-        this.width = 60;
-        this.height = 60;
+        this.width = 40;
+        this.height = 40;
         this.label = "player";
         this.texture = loadImage("dragoon.png");
     }
