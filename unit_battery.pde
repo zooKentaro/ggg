@@ -1,11 +1,11 @@
 /**
  * 砲台
  */
-class Battery extends UnitCombat implements Gun {
+class UnitBattery extends UnitCombat implements Gun {
     public int power_x;
     public int power_y;
 
-    public Battery(String direction) {
+    public UnitBattery(String direction) {
         this.width = 20;
         this.height = 20;
         this.action_interval_ms = 2000;

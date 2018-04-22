@@ -1,10 +1,10 @@
 /**
  * 3way砲台
  */
-class ThreeWayBattery extends UnitCombat implements Gun {
+class UnitThreeWayBattery extends UnitCombat implements Gun {
     public int power_x;
 
-    public ThreeWayBattery(String direction) {
+    public UnitThreeWayBattery(String direction) {
         this.width = 20;
         this.height = 20;
         this.action_interval_ms = 5000;

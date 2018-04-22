@@ -2,9 +2,9 @@ class FactoryUnit {
     public Unit generate(String name, String direction) {
         switch (name) {
             case "battery":
-                return new Battery(direction);
+                return new UnitBattery(direction);
             case "three_way_battery":
-                return new ThreeWayBattery(direction);
+                return new UnitThreeWayBattery(direction);
             default:
                 return new Unit();
         }
