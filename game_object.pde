@@ -11,6 +11,10 @@ abstract class GameObject {
     public boolean is_alive = true;
     // 画像
     public PImage texture;
+    // 名前
+    public String name = "object";
+    // タイプ
+    public String type = "object";
     // ラベル
     public String label = "";
 

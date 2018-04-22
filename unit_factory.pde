@@ -1,9 +1,7 @@
 class UnitFactory {
-    public Unit generate(String code) {
-        switch (code) {
-            case "a1":
-                return new UnitSimple();
-            case "b1":
+    public Unit generate(String name) {
+        switch (name) {
+            case "battery":
                 return new Battery();
             default:
                 return new Unit();

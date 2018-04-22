@@ -10,7 +10,7 @@ class Player extends Mob implements ControllerInterface {
 
     // ユニットを配置する
     public void putUnit() {
-        Unit unit = (Unit)(game.factory.generate("b1").set(this.x + this.width, this.y));
+        Unit unit = (Unit)(game.factory.generate("battery").set(this.x + this.width, this.y));
 
         // 特定のラベルが付いているオブジェクトの上には置けないようにする.
         String labels[] = {"player", "unit"};
@@ -42,7 +42,7 @@ class Player extends Mob implements ControllerInterface {
     }
 
     public void onHit(GameObject object) {
-        if (object.label == "bullet") {
+        if (object.type == "bullet") {
             this.destroy();
         }
     }

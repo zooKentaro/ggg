@@ -7,7 +7,8 @@ class Bullet extends GameObject {
         this.y = y;
         this.width = 5;
         this.height = 5;
-        this.label = "bullet";
+        this.name = "bullet";
+        this.type = "bullet";
     }
 
     @Override

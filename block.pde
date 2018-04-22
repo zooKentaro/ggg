@@ -6,6 +6,7 @@ class Block extends GameObject {
         this.y = y;
         this.width = 40;
         this.height = 40;
+        this.name = "block";
         this.label = "block";
     }
 
