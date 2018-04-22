@@ -1,4 +1,4 @@
-class Player2 extends GameObject {
+class Player2 extends Player {
     public int speed = 4;
 
     public Player2(int x, int y) {
@@ -6,25 +6,20 @@ class Player2 extends GameObject {
         this.y = y;
         this.width = 60;
         this.height = 60;
-        this.label = "player2";
+        this.label = "player";
         this.texture = loadImage("bullet.png");
     }
 
     @Override
-    protected void update() {
+    public void controll() {
         if (game.key.left2)  this.x -= speed;
         if (game.key.right2) this.x += speed;
         if (game.key.up2)    this.y -= speed;
         if (game.key.down2)  this.y += speed;
-    }
 
-    @Override
-    protected void draw() {
-        image(this.texture, this.x, this.y, this.width, this.height);
-    }
-
-    @Override
-    public void destroy() {
-        this.is_alive = false;
+        if (game.key.space2 && game.recoder.get(this.getUnitTimerKey()) == 0) {
+            this.putUnit();
+            game.recoder.set(this.getUnitTimerKey(), this.break_time_ms);
+        }
     }
 }

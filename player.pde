@@ -1,37 +1,26 @@
-class Player extends Mob {
+class Player extends Mob implements ControllerInterface {
     public int speed = 4;
     public int break_time_ms = 500;
 
-    public Player(int x, int y) {
-        this.x = x;
-        this.y = y;
-        this.width = 60;
-        this.height = 60;
-        this.label = "player";
-        this.texture = loadImage("dragoon.png");
-    }
-
     @Override
     protected void update() {
-        if (game.key.left)  this.x -= speed;
-        if (game.key.right) this.x += speed;
-        if (game.key.up)    this.y -= speed;
-        if (game.key.down)  this.y += speed;
+        // 操作する
+        controll();
+    }
 
-        if (game.key.space && game.recoder.get("PUT_UNIT") == 0) {
-            Unit unit = (Unit)(game.factory.generate("a1").set(this.x + this.width, this.y));
+    // ユニットを配置する
+    public void putUnit() {
+        Unit unit = (Unit)(game.factory.generate("b1").set(this.x + this.width, this.y));
 
-            // 特定のラベルが付いているオブジェクトの上には置けないようにする.
-            String labels[] = {"player2", "unit"};
-            ArrayList<GameObject> obj = game.findByLabels(labels);
-            for (int i = 0; i < obj.size(); i++) {
-                if (unit.isHitting(obj.get(i))) {
-                    return;
-                }
+        // 特定のラベルが付いているオブジェクトの上には置けないようにする.
+        String labels[] = {"player", "unit"};
+        ArrayList<GameObject> obj = game.findByLabels(labels);
+        for (int i = 0; i < obj.size(); i++) {
+            if (unit.isHitting(obj.get(i))) {
+                return;
             }
-            game.recoder.set("PUT_UNIT", this.break_time_ms);
-            game.spawn(unit);
-        }
+        };
+        game.spawn(unit);
     }
 
     @Override
@@ -42,5 +31,13 @@ class Player extends Mob {
     @Override
     public void destroy() {
         this.is_alive = false;
+    }
+
+    public void controll() {
+        //
+    }
+
+    protected String getUnitTimerKey() {
+        return "PUT_UNIT_" + this.hashCode();
     }
 }

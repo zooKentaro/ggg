@@ -21,4 +21,6 @@ class Key {
     public boolean down2;
     //wキーを押しているかどうか
     public boolean up2;
+
+    public boolean space2;
 }
