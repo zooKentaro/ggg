@@ -16,7 +16,7 @@ class Game {
     // タイムレコーダー
     public TimeRecorder recoder;
     // ファクトリ
-    public UnitFactory factory;
+    public FactoryUnit factory;
     // フィールド
     public Field field;
 
@@ -47,7 +47,7 @@ class Game {
         this.recoder = new TimeRecorder();
 
         // ファクトリを初期化
-        this.factory = new UnitFactory();
+        this.factory = new FactoryUnit();
 
         // スタート画面で初期化
         this.changeScene(SceneNum.START);

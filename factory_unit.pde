@@ -1,4 +1,4 @@
-class UnitFactory {
+class FactoryUnit {
     public Unit generate(String name, String direction) {
         switch (name) {
             case "battery":
