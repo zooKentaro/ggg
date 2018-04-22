@@ -13,9 +13,10 @@
 
 #### Unit
 
-|NAME       |TYPE       |LABEL       |
-|:----------|:----------|:-----------|
-|battery    |unit       |            |
+|NAME              |TYPE       |LABEL       |
+|:-----------------|:----------|:-----------|
+|battery           |unit       |            |
+|three_way_battery |unit       |            |
 
 ***
 
