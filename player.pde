@@ -40,4 +40,10 @@ class Player extends Mob implements ControllerInterface {
     protected String getUnitTimerKey() {
         return "PUT_UNIT_" + this.hashCode();
     }
+
+    public void onHit(GameObject object) {
+        if (object.label == "bullet") {
+            this.destroy();
+        }
+    }
 }
