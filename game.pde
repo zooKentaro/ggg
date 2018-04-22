@@ -17,6 +17,8 @@ class Game {
     public TimeRecorder recoder;
     // ファクトリ
     public UnitFactory factory;
+    // フィールド
+    public Field field;
 
     // ゲーム内に登場する全てのオブジェクトを格納する配列
     public GameObject objects[];
@@ -49,6 +51,9 @@ class Game {
 
         // スタート画面で初期化
         this.changeScene(SceneNum.START);
+
+        // フィールド初期化
+        this.field = new Field();
     }
 
     /**

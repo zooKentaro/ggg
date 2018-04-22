@@ -18,8 +18,6 @@ class MainScene extends Scene {
                 continue;
             }
             if (game.objects[i].is_alive == true) {
-                // オブジェクト描画
-                game.objects[i].run();
                 // 当たり判定
                 for (int j = 0; j < game.objects.length; j++) {
                     // null の場合はその場で終了
@@ -29,6 +27,8 @@ class MainScene extends Scene {
                     // 当たっているかどうかを調べる
                     game.objects[i].checkHitting(game.objects[j]);
                 }
+                // オブジェクト描画
+                game.objects[i].run();
             }
         }
     }

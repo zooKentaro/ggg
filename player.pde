@@ -6,6 +6,9 @@ class Player extends Mob implements ControllerInterface {
     protected void update() {
         // 操作する
         controll();
+
+        // アンロック
+        this.unlock();
     }
 
     // ユニットを配置する
@@ -42,6 +45,8 @@ class Player extends Mob implements ControllerInterface {
     }
 
     public void onHit(GameObject object) {
+        // 右側をロック
+        super.onHit(object);
         if (object.type == "bullet") {
             this.destroy();
         }

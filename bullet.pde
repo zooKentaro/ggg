@@ -14,7 +14,7 @@ class Bullet extends GameObject {
 
     @Override
     protected void update() {
-        this.x -= this.speed;
+        this.x += this.speed;
     }
 
     @Override
