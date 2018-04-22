@@ -10,7 +10,7 @@ class Battery extends UnitCombat implements Gun {
         this.height = 20;
         this.action_interval_ms = 2000;
         this.name = "battery";
-        this.label = "unit";
+        this.type = "unit";
         this.power_y = 0;
 
         if (direction == "right") {
