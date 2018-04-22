@@ -1,7 +1,10 @@
 Game game;
 
+// Debug Mode
+boolean debug = true;
+
 void settings() {
-    Config config = new Config();
+    Config config = debug ? new ConfigDebug() : new ConfigProduction();
     game = new Game(config);
     size(game.config.SCREEN_WIDTH, game.config.SCREEN_HEIGHT);
 }

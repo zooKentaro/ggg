@@ -1,7 +1,22 @@
-public class Config {
-    public final int SCREEN_WIDTH = 900;
-    public final int SCREEN_HEIGHT = 600;
-    public final int BACKGROUND_RESET_COLOR = 255;
-    public final int MAX_OBJECT_NUM = 999;
-    public final int MAX_TIME_RECODE_NUM = 99;
+public abstract class Config {
+    // スクリーン横幅
+    public int SCREEN_WIDTH = 900;
+
+    // スクリーン縦幅
+    public int SCREEN_HEIGHT = 600;
+
+    // 戦闘フィールドの横幅
+    public int FIELD_WIDTH = 900;
+
+    // 戦闘フィールドの縦幅
+    public int FIELD_HEIGHT = 600;
+
+    // フレームをリセットする色
+    public int BACKGROUND_RESET_COLOR = 255;
+
+    // ゲームオブジェクトを格納する最大インデックス数
+    public int MAX_OBJECT_NUM = 999;
+
+    // タイムレコードを格納する最大インデックス数
+    public int MAX_TIME_RECODE_NUM = 99;
 }
