@@ -13,7 +13,7 @@ class Player extends Mob implements ControllerInterface {
 
     // ユニットを配置する
     public void putUnit() {
-        Unit unit = (Unit)(game.factory.generate("battery").set(this.x + this.width, this.y));
+        Unit unit = (Unit)(game.factory.generate("battery", this.direction).set(this.x + this.width, this.y + this.height));
 
         // 特定のラベルが付いているオブジェクトの上には置けないようにする.
         String labels[] = {"player", "unit"};

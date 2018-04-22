@@ -2,12 +2,22 @@
  * 砲台
  */
 class Battery extends UnitCombat implements Gun {
-    public Battery() {
+    public int power_x;
+    public int power_y;
+
+    public Battery(String direction) {
         this.width = 20;
         this.height = 20;
         this.action_interval_ms = 2000;
         this.name = "battery";
         this.label = "unit";
+        this.power_y = 0;
+
+        if (direction == "right") {
+            this.power_x = 15;
+        } else {
+            this.power_x = -15;
+        }
     }
 
     public void action() {
@@ -15,6 +25,6 @@ class Battery extends UnitCombat implements Gun {
     }
 
     public void fire() {
-        game.spawn(new Bullet(this.x, this.y));
+        game.spawn(new Bullet(this.x, this.y, this.power_x, this.power_y));
     }
 }

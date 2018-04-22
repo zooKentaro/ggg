@@ -7,6 +7,7 @@ class Player2 extends Player {
         this.width = 40;
         this.height = 40;
         this.label = "player";
+        this.direction = "right";
         this.texture = loadImage("unicoon.png");
     }
 

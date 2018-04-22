@@ -1,10 +1,13 @@
 class Bullet extends GameObject {
-    public int speed  = 15;
     public int damage = 20;
+    public int power_x;
+    public int power_y;
 
-    public Bullet(int x, int y) {
+    public Bullet(int x, int y, int power_x, int power_y) {
         this.x = x;
         this.y = y;
+        this.power_x = power_x;
+        this.power_y = power_y;
         this.width = 15;
         this.height = 15;
         this.name = "bullet";
@@ -14,7 +17,8 @@ class Bullet extends GameObject {
 
     @Override
     protected void update() {
-        this.x += this.speed;
+        this.x += this.power_x;
+        this.y += this.power_y;
     }
 
     @Override
