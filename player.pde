@@ -22,10 +22,10 @@ class Player extends Mob {
             GameObject block = new Block(this.x + this.width, this.y);
 
             // 特定のラベルが付いているオブジェクトの上には置けないようにする.
-            String labels[] = {"player", "block"};
+            String labels[] = {"player2", "block"};
             ArrayList<GameObject> obj = game.findByLabels(labels);
             for (int i = 0; i < obj.size(); i++) {
-                if (g.isHitting(obj.get(i))) {
+                if (block.isHitting(obj.get(i))) {
                     return;
                 }
             }

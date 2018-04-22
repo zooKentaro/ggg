@@ -6,7 +6,7 @@ class Player2 extends GameObject {
         this.y = y;
         this.width = 60;
         this.height = 60;
-        this.label = "player";
+        this.label = "player2";
         this.texture = loadImage("bullet.png");
     }
 
