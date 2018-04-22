@@ -7,6 +7,10 @@ class MainScene extends Scene {
 
     @Override
     public void draw() {
+        // 背景描画
+        fill(220, 255, 220);
+        rect(0, 0, game.config.FIELD_WIDTH, game.config.FIELD_HEIGHT);
+
         // 有効なオブジェクトのdraw()を毎フレーム呼び出す
         for (int i = 0; i < game.objects.length; i++) {
             // null の場合はその場で終了
