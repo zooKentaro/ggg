@@ -1,4 +1,4 @@
-class ClearScene extends Scene {
+class SceneClear extends Scene {
     @Override
     public void setup() {
         //

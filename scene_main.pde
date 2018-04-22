@@ -1,4 +1,4 @@
-class MainScene extends Scene {
+class SceneMain extends Scene {
     @Override
     public void setup() {
         game.spawn(new Player1(game.config.SCREEN_WIDTH / 2, game.config.SCREEN_HEIGHT / 2));

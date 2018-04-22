@@ -4,13 +4,13 @@ class Game {
     // 現在のシーン
     public Scene current_scene;
     // スタートシーン
-    protected Scene start_scene;
+    protected Scene scene_start;
     // メインシーン
-    protected Scene main_scene;
+    protected Scene scene_main;
     // クリアシーン
-    protected Scene clear_scene;
+    protected Scene scene_clear;
     // ゲームオーバーシーン
-    protected Scene over_scene;
+    protected Scene scene_over;
     // keyを受付
     public Key key;
     // タイムレコーダー
@@ -32,10 +32,10 @@ class Game {
      */
     public void setup() {
         // 各シーンを作成しておく
-        this.start_scene = new StartScene();
-        this.main_scene = new MainScene();
-        this.clear_scene = new ClearScene();
-        this.over_scene = new OverScene();
+        this.scene_start = new SceneStart();
+        this.scene_main = new SceneMain();
+        this.scene_clear = new SceneClear();
+        this.scene_over = new SceneOver();
 
         // keyを初期化
         this.key = new Key();
@@ -71,16 +71,16 @@ class Game {
     public void changeScene(int scene_num) {
         switch (scene_num) {
             case SceneNum.START:
-                this.current_scene = this.start_scene;
+                this.current_scene = this.scene_start;
                 break;
             case SceneNum.MAIN:
-                this.current_scene = this.main_scene;
+                this.current_scene = this.scene_main;
                 break;
             case SceneNum.CLEAR:
-                this.current_scene = this.clear_scene;
+                this.current_scene = this.scene_clear;
                 break;
             case SceneNum.OVER:
-                this.current_scene = this.over_scene;
+                this.current_scene = this.scene_over;
                 break;
         }
         this.current_scene.setup();

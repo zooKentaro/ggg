@@ -1,4 +1,4 @@
-class StartScene extends Scene {
+class SceneStart extends Scene {
     @Override
     public void setup() {
         //
