@@ -1,0 +1,3 @@
+class UnitSimple extends Unit {
+    //
+}

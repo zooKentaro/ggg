@@ -13,6 +13,8 @@ class Game {
     public Key key;
     // タイムレコーダー
     public TimeRecorder recoder;
+    // ファクトリ
+    public UnitFactory factory;
 
     // ゲーム内に登場する全てのオブジェクトを格納する配列
     public GameObject objects[];
@@ -35,6 +37,9 @@ class Game {
 
         // タイムレコーダーを初期化
         this.recoder = new TimeRecorder();
+
+        // ファクトリを初期化
+        this.factory = new UnitFactory();
 
         // スタート画面で初期化
         this.changeScene(SceneNum.START);

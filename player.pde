@@ -18,19 +18,19 @@ class Player extends Mob {
         if (game.key.up)    this.y -= speed;
         if (game.key.down)  this.y += speed;
 
-        if (game.key.space && game.recoder.get("PUT_BLOCK") == 0) {
-            GameObject block = new Block(this.x + this.width, this.y);
+        if (game.key.space && game.recoder.get("PUT_UNIT") == 0) {
+            Unit unit = (Unit)(game.factory.generate("a1").set(this.x + this.width, this.y));
 
             // 特定のラベルが付いているオブジェクトの上には置けないようにする.
-            String labels[] = {"player2", "block"};
+            String labels[] = {"player2", "unit"};
             ArrayList<GameObject> obj = game.findByLabels(labels);
             for (int i = 0; i < obj.size(); i++) {
-                if (block.isHitting(obj.get(i))) {
+                if (unit.isHitting(obj.get(i))) {
                     return;
                 }
             }
-            game.recoder.set("PUT_BLOCK", this.break_time_ms);
-            game.spawn(block);
+            game.recoder.set("PUT_UNIT", this.break_time_ms);
+            game.spawn(unit);
         }
     }
 

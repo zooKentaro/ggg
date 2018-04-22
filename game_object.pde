@@ -33,6 +33,19 @@ abstract class GameObject {
     }
 
     /**
+     * xとyをセットする
+     *
+     * @param int x x座標
+     * @param int y y座標
+     * @return GameObject
+     */
+    public GameObject set(int x, int y) {
+        this.x = x;
+        this.y = y;
+        return this;
+    }
+
+    /**
      * objectと接触しているかどうかを確認する
      * 接触していれば、対象のオブジェクトを引数に
      * onHit() を呼び出す
