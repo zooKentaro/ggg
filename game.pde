@@ -11,6 +11,8 @@ class Game {
     protected Scene over_scene;
     // keyを受付
     public Key key;
+    // タイムレコーダー
+    public TimeRecorder recoder;
 
     // ゲーム内に登場する全てのオブジェクトを格納する配列
     public GameObject objects[];
@@ -31,6 +33,9 @@ class Game {
         // オブジェクト配列初期化
         this.objects = new GameObject[Config.MAX_OBJECT_NUM];
 
+        // タイムレコーダーを初期化
+        this.recoder = new TimeRecorder();
+
         // スタート画面で初期化
         this.changeScene(SceneNum.START);
     }
@@ -39,7 +44,7 @@ class Game {
      * ゲームを描画する
      */
     public void play() {
-        this.current_scene.draw(this);
+        this.current_scene.draw();
     }
 
     /**
@@ -62,7 +67,7 @@ class Game {
                 this.current_scene = this.over_scene;
                 break;
         }
-        this.current_scene.setup(this);
+        this.current_scene.setup();
     }
 
     /**
@@ -77,5 +82,21 @@ class Game {
                 return;
             }
         }
+    }
+
+    /**
+     * 指定されたラベルを持つGameobjectを全て取得する
+     */
+    public ArrayList<GameObject> findByLabels(String[] labels) {
+        ArrayList<GameObject> obj = new ArrayList<GameObject>();
+        for (int i = 0; i < labels.length; i++) {
+            for (int j = 0; j < this.objects.length; j++) {
+                if (this.objects[j] == null) continue;
+                if (this.objects[j].label.equals(labels[i]) && this.objects[j].is_alive == true) {
+                    obj.add(this.objects[j]);
+                }
+            }
+        }
+        return obj;
     }
 }

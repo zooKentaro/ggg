@@ -3,4 +3,5 @@ public class Config {
     static final int SCREEN_HEIGHT = 600;
     static final int BACKGROUND_RESET_COLOR = 255;
     static final int MAX_OBJECT_NUM = 999;
+    static final int MAX_TIME_RECODE_NUM = 99;
 }

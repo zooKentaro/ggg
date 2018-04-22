@@ -14,35 +14,49 @@ abstract class GameObject {
     // ラベル
     public String label = "";
 
+    // オブジェクトを更新する
+    protected abstract void update();
+
     // オブジェクトを描画する
-    abstract void draw(Game g);
+    protected abstract void draw();
 
     // オブジェクトを破壊する (消す)
-    abstract void destroy(Game g);
+    public abstract void destroy();
+
+    /**
+     * ゲーム内に存在するオブジェクトとして更新・描画する
+     */
+    public void run() {
+        this.update();
+
+        this.draw();
+    }
 
     /**
      * objectと接触しているかどうかを確認する
      * 接触していれば、対象のオブジェクトを引数に
      * onHit() を呼び出す
      */
-    public void checkHitting(Game g, GameObject object) {
+    public void checkHitting(GameObject object) {
         // 同じインスタンス同士ではfalse
         if (this.hashCode() == object.hashCode()) {
             return;
         }
 
         // 座標から当たり判定
-        if (
-            this.x   < object.x + object.width &&
-            object.x < this.x + this.width &&
-            this.y   < object.y + object.height &&
-            object.y < this.y + this.height
-        ) {
-            this.onHit(g, object);
+        if (this.isHitting(object)) {
+            this.onHit(object);
         }
     }
 
-    public void onHit(Game g, GameObject object) {
+    public boolean isHitting(GameObject object) {
+        return this.x < object.x + object.width &&
+            object.x < this.x + this.width &&
+            this.y   < object.y + object.height &&
+            object.y < this.y + this.height;
+    }
+
+    public void onHit(GameObject object) {
         //
     }
 }

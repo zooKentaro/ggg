@@ -1,4 +1,4 @@
-class Enemy extends GameObject {
+class Enemy extends Mob {
     public int speed = 2;
 
     public Enemy(int x, int y) {
@@ -10,12 +10,19 @@ class Enemy extends GameObject {
         this.texture = loadImage("enemy.png");
     }
 
-    public void draw(Game g) {
+    @Override
+    public void update()
+    {
         this.x -= this.speed;
+    }
+
+    @Override
+    public void draw() {
         image(this.texture, this.x, this.y, this.width, this.height);
     }
 
-    public void destroy(Game g) {
+    @Override
+    public void destroy() {
         this.is_alive = false;
     }
 }

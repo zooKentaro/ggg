@@ -1,11 +1,11 @@
 class OverScene extends Scene {
     @Override
-    public void setup(Game g) {
+    public void setup() {
         //
     }
 
     @Override
-    public void draw(Game g) {
+    public void draw() {
         fill(0);
         text("現在ゲームオーバーシーンです", Config.SCREEN_WIDTH / 2, Config.SCREEN_HEIGHT / 2);
     }
