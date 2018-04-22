@@ -23,4 +23,5 @@ class Bullet extends GameObject {
     public void destroy() {
         this.is_alive = false;
     }
+    
 }

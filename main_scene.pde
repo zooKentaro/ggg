@@ -1,7 +1,7 @@
 class MainScene extends Scene {
     @Override
     public void setup() {
-        game.spawn(new Player(Config.SCREEN_WIDTH / 2, Config.SCREEN_HEIGHT / 2));
+        game.spawn(new Player1(Config.SCREEN_WIDTH / 2, Config.SCREEN_HEIGHT / 2));
         game.spawn(new Player2(Config.SCREEN_WIDTH / 2, Config.SCREEN_HEIGHT / 3));
         game.spawn(new Enemy(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT / 2));
     }
