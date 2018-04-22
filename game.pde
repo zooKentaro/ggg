@@ -1,4 +1,6 @@
 class Game {
+    // 設定
+    public Config config;
     // 現在のシーン
     public Scene current_scene;
     // スタートシーン
@@ -19,6 +21,10 @@ class Game {
     // ゲーム内に登場する全てのオブジェクトを格納する配列
     public GameObject objects[];
 
+    public Game(Config config) {
+        this.config = config;
+    }
+
     /**
      * ゲームをセットアップする
      */
@@ -33,7 +39,7 @@ class Game {
         this.key = new Key();
 
         // オブジェクト配列初期化
-        this.objects = new GameObject[Config.MAX_OBJECT_NUM];
+        this.objects = new GameObject[game.config.MAX_OBJECT_NUM];
 
         // タイムレコーダーを初期化
         this.recoder = new TimeRecorder();

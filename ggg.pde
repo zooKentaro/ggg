@@ -1,11 +1,12 @@
 Game game;
 
 void settings() {
-    size(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
+    Config config = new Config();
+    game = new Game(config);
+    size(game.config.SCREEN_WIDTH, game.config.SCREEN_HEIGHT);
 }
 
 void setup() {
-    game = new Game();
     game.setup();
 }
 
@@ -44,6 +45,6 @@ void keyReleased() {
 }
 
 void draw() {
-    background(Config.BACKGROUND_RESET_COLOR);
+    background(game.config.BACKGROUND_RESET_COLOR);
     game.play();
 }
