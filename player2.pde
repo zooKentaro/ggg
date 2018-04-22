@@ -1,5 +1,5 @@
 class Player2 extends Player {
-    public int speed = 4;
+    public int speed = 2;
 
     public Player2(int x, int y) {
         this.x = x;
