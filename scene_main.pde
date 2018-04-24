@@ -1,8 +1,9 @@
 class SceneMain extends Scene {
     @Override
     public void setup() {
-        game.spawn(new Player1(game.config.SCREEN_WIDTH / 2, game.config.SCREEN_HEIGHT / 2));
-        game.spawn(new Player2(game.config.SCREEN_WIDTH / 2, game.config.SCREEN_HEIGHT / 3));
+        game.spawn(new Player1(game.field.X(20), game.config.SCREEN_HEIGHT / 2));
+        game.spawn(new Player2(game.field.X(1), game.config.SCREEN_HEIGHT / 2));
+        setShields();
     }
 
     @Override
@@ -30,6 +31,31 @@ class SceneMain extends Scene {
                 // オブジェクト描画
                 game.objects[i].run();
             }
+        }
+    }
+
+    /**
+     * シールドを展開する
+     */
+    protected void setShields() {
+        int w = game.field.sectionW();
+        int h = game.field.sectionH();
+        int[] p1y = game.field.fieldY1List();
+
+        // Player1のシールドを展開
+        int x = game.field.X(2);
+        for (int y = 0; y < p1y.length; y++) {
+            println(x);
+            println(y * h);
+            game.spawn(new Shield(x, y * h));
+        }
+
+        // Player2のシールドを展開
+        x = game.field.X(19);
+        for (int y = 0; y < p1y.length; y++) {
+            println(x);
+            println(y * h);
+            game.spawn(new Shield(x, y * h));
         }
     }
 }

@@ -49,11 +49,11 @@ class Game {
         // ファクトリを初期化
         this.factory = new FactoryUnit();
 
-        // スタート画面で初期化
-        this.changeScene(SceneNum.START);
-
         // フィールド初期化
         this.field = new Field();
+
+        // スタート画面で初期化
+        this.changeScene(SceneNum.START);
     }
 
     /**
