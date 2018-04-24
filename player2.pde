@@ -10,6 +10,16 @@ class Player2 extends Player {
         this.type = "player";
         this.direction = "right";
         this.texture = loadImage("unicoon.png");
+        this.mode = "select_and_move";
+        this.pointer = new Pointer2(this.x, this.y);
+    }
+
+    public void update() {
+        super.update();
+        if (game.key.enter2 && game.recoder.get("player2_change_mode") == 0) {
+            game.recoder.set("player2_change_mode", 300);
+            this.mode = this.mode == "select_and_move" ? "pointer" : "select_and_move";
+        }
     }
 
     @Override

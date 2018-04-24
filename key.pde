@@ -23,4 +23,6 @@ class Key {
     public boolean up2;
 
     public boolean space2;
+
+    public boolean enter2;
 }

@@ -27,6 +27,7 @@ void keyPressed() {
     if (keyCode == 'A')   game.key.left2  = true;
     if (keyCode == 'S')   game.key.down2  = true;
     if (keyCode == 'W')   game.key.up2    = true;
+    if (keyCode == 'Z')   game.key.enter2 = true;
     if (keyCode == 'X')   game.key.space2 = true;
 }
 
@@ -44,6 +45,7 @@ void keyReleased() {
     if (keyCode == 'A')   game.key.left2  = false;
     if (keyCode == 'S')   game.key.down2  = false;
     if (keyCode == 'W')   game.key.up2    = false;
+    if (keyCode == 'Z')   game.key.enter2 = false;
     if (keyCode == 'X')   game.key.space2 = false;
 }
 

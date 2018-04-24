@@ -1,14 +1,18 @@
 class Player extends Mob implements ControllerInterface {
     public int speed = 4;
     public int break_time_ms = 500;
+    public Pointer pointer;
+    public String mode = "";
 
     @Override
     protected void update() {
-        // 操作する
-        this.controll();
-
-        // アンロック
-        this.unlock();
+        if (this.mode == "select_and_move") {
+            // 操作する
+            this.controll();
+        } else if (this.mode == "pointer") {
+            // ポインタを操作する
+            this.pointer.run();
+        }
     }
 
     // ユニットを配置する
