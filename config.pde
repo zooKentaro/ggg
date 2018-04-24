@@ -1,12 +1,12 @@
 public abstract class Config {
     // スクリーン横幅
-    public int SCREEN_WIDTH = 900;
+    public int SCREEN_WIDTH = 1200;
 
     // スクリーン縦幅
     public int SCREEN_HEIGHT = 600;
 
     // 戦闘フィールドの開始X座標
-    public int FIELD_X = 0;
+    public int FIELD_X = 200;
 
     // 戦闘フィールドの開始Y座標
     public int FIELD_Y = 0;

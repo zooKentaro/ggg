@@ -1,7 +1,7 @@
 Game game;
 
 // Debug Mode
-boolean debug = true;
+boolean debug = false;
 
 void settings() {
     Config config = debug ? new ConfigDebug() : new ConfigProduction();
