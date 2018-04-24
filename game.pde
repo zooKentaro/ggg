@@ -115,4 +115,20 @@ class Game {
         }
         return obj;
     }
+
+    /**
+     * 指定されたタイプを持つGameobjectを全て取得する
+     */
+    public ArrayList<GameObject> findByTypes(String[] types) {
+        ArrayList<GameObject> obj = new ArrayList<GameObject>();
+        for (int i = 0; i < types.length; i++) {
+            for (int j = 0; j < this.objects.length; j++) {
+                if (this.objects[j] == null) continue;
+                if (this.objects[j].type.equals(types[i]) && this.objects[j].is_alive == true) {
+                    obj.add(this.objects[j]);
+                }
+            }
+        }
+        return obj;
+    }
 }

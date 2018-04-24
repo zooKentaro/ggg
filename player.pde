@@ -5,7 +5,7 @@ class Player extends Mob implements ControllerInterface {
     @Override
     protected void update() {
         // 操作する
-        controll();
+        this.controll();
 
         // アンロック
         this.unlock();
@@ -16,8 +16,8 @@ class Player extends Mob implements ControllerInterface {
         Unit unit = (Unit)(game.factory.generate("three_way_battery", this.direction).set(this.x + this.width, this.y + this.height));
 
         // 特定のラベルが付いているオブジェクトの上には置けないようにする.
-        String labels[] = {"player", "unit"};
-        ArrayList<GameObject> obj = game.findByLabels(labels);
+        String types[] = {"player", "unit"};
+        ArrayList<GameObject> obj = game.findByTypes(types);
         for (int i = 0; i < obj.size(); i++) {
             if (unit.isHitting(obj.get(i))) {
                 return;
@@ -51,7 +51,6 @@ class Player extends Mob implements ControllerInterface {
     }
 
     public void onHit(GameObject object) {
-        // 右側をロック
         super.onHit(object);
         if (object.type == "bullet") {
             this.destroy();

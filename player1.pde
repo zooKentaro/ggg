@@ -8,7 +8,8 @@ class Player1 extends Player {
         this.height = 32;
         this.margin_width = 4;
         this.margin_height = 4;
-        this.label = "player";
+        this.name = "player1";
+        this.type = "player";
         this.direction = "left";
         this.texture = loadImage("dragoon.png");
     }
