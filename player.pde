@@ -1,46 +1,63 @@
-class Player extends Mob {
+class Player extends Mob implements ControllerInterface {
     public int speed = 4;
     public int break_time_ms = 500;
-
-    public Player(int x, int y) {
-        this.x = x;
-        this.y = y;
-        this.width = 60;
-        this.height = 60;
-        this.label = "player";
-        this.texture = loadImage("dragoon.png");
-    }
+    public Pointer pointer;
+    public String mode = "";
 
     @Override
     protected void update() {
-        if (game.key.left)  this.x -= speed;
-        if (game.key.right) this.x += speed;
-        if (game.key.up)    this.y -= speed;
-        if (game.key.down)  this.y += speed;
-
-        if (game.key.space && game.recoder.get("PUT_BLOCK") == 0) {
-            GameObject block = new Block(this.x + this.width, this.y);
-
-            // 特定のラベルが付いているオブジェクトの上には置けないようにする.
-            String labels[] = {"player", "block"};
-            ArrayList<GameObject> obj = game.findByLabels(labels);
-            for (int i = 0; i < obj.size(); i++) {
-                if (g.isHitting(obj.get(i))) {
-                    return;
-                }
-            }
-            game.recoder.set("PUT_BLOCK", this.break_time_ms);
-            game.spawn(block);
+        if (this.mode == "select_and_move") {
+            // 操作する
+            this.controll();
+        } else if (this.mode == "pointer") {
+            // ポインタを操作する
+            this.pointer.run();
         }
+    }
+
+    // ユニットを配置する
+    public void putUnit() {
+        Unit unit = (Unit)(game.factory.generate("three_way_battery", this.direction).set(this.pointer.x + this.pointer.width, this.pointer.y + this.pointer.height));
+        print("put");
+        // 特定のラベルが付いているオブジェクトの上には置けないようにする.
+        String types[] = {"player", "unit"};
+        ArrayList<GameObject> obj = game.findByTypes(types);
+        for (int i = 0; i < obj.size(); i++) {
+            if (unit.isHitting(obj.get(i))) {
+                return;
+            }
+        };
+        game.spawn(unit);
     }
 
     @Override
     protected void draw() {
-        image(this.texture, this.x, this.y, this.width, this.height);
+        image(
+            this.texture,
+            this.x - this.margin_width,
+            this.y - this.margin_height,
+            this.width + this.margin_width * 2,
+            this.height + this.margin_height * 2
+        );
     }
 
     @Override
     public void destroy() {
         this.is_alive = false;
+    }
+
+    public void controll() {
+        //
+    }
+
+    protected String getUnitTimerKey() {
+        return "PUT_UNIT_" + this.hashCode();
+    }
+
+    public void onHit(GameObject object) {
+        super.onHit(object);
+        if (object.type == "bullet") {
+            this.destroy();
+        }
     }
 }

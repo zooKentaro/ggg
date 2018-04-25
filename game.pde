@@ -1,40 +1,56 @@
 class Game {
+    // 設定
+    public Config config;
     // 現在のシーン
     public Scene current_scene;
     // スタートシーン
-    protected Scene start_scene;
+    protected Scene scene_start;
     // メインシーン
-    protected Scene main_scene;
+    protected Scene scene_main;
     // クリアシーン
-    protected Scene clear_scene;
+    protected Scene scene_clear;
     // ゲームオーバーシーン
-    protected Scene over_scene;
+    protected Scene scene_over;
     // keyを受付
     public Key key;
     // タイムレコーダー
     public TimeRecorder recoder;
+    // ファクトリ
+    public FactoryUnit factory;
+    // フィールド
+    public Field field;
 
     // ゲーム内に登場する全てのオブジェクトを格納する配列
     public GameObject objects[];
+
+    public Game(Config config) {
+        this.config = config;
+    }
 
     /**
      * ゲームをセットアップする
      */
     public void setup() {
         // 各シーンを作成しておく
-        this.start_scene = new StartScene();
-        this.main_scene = new MainScene();
-        this.clear_scene = new ClearScene();
-        this.over_scene = new OverScene();
+        this.scene_start = new SceneStart();
+        this.scene_main = new SceneMain();
+        this.scene_clear = new SceneClear();
+        this.scene_over = new SceneOver();
 
         // keyを初期化
         this.key = new Key();
 
         // オブジェクト配列初期化
-        this.objects = new GameObject[Config.MAX_OBJECT_NUM];
+        this.objects = new GameObject[game.config.MAX_OBJECT_NUM];
 
         // タイムレコーダーを初期化
         this.recoder = new TimeRecorder();
+
+        // ファクトリを初期化
+        this.factory = new FactoryUnit();
+
+        // フィールド初期化
+        this.field = new Field();
 
         // スタート画面で初期化
         this.changeScene(SceneNum.START);
@@ -55,16 +71,16 @@ class Game {
     public void changeScene(int scene_num) {
         switch (scene_num) {
             case SceneNum.START:
-                this.current_scene = this.start_scene;
+                this.current_scene = this.scene_start;
                 break;
             case SceneNum.MAIN:
-                this.current_scene = this.main_scene;
+                this.current_scene = this.scene_main;
                 break;
             case SceneNum.CLEAR:
-                this.current_scene = this.clear_scene;
+                this.current_scene = this.scene_clear;
                 break;
             case SceneNum.OVER:
-                this.current_scene = this.over_scene;
+                this.current_scene = this.scene_over;
                 break;
         }
         this.current_scene.setup();
@@ -93,6 +109,22 @@ class Game {
             for (int j = 0; j < this.objects.length; j++) {
                 if (this.objects[j] == null) continue;
                 if (this.objects[j].label.equals(labels[i]) && this.objects[j].is_alive == true) {
+                    obj.add(this.objects[j]);
+                }
+            }
+        }
+        return obj;
+    }
+
+    /**
+     * 指定されたタイプを持つGameobjectを全て取得する
+     */
+    public ArrayList<GameObject> findByTypes(String[] types) {
+        ArrayList<GameObject> obj = new ArrayList<GameObject>();
+        for (int i = 0; i < types.length; i++) {
+            for (int j = 0; j < this.objects.length; j++) {
+                if (this.objects[j] == null) continue;
+                if (this.objects[j].type.equals(types[i]) && this.objects[j].is_alive == true) {
                     obj.add(this.objects[j]);
                 }
             }

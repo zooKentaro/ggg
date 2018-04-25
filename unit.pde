@@ -1,14 +1,5 @@
-class Block extends GameObject {
+class Unit extends GameObject {
     public int speed = 2;
-
-    public Block(int x, int y) {
-        this.x = x;
-        this.y = y;
-        this.width = 40;
-        this.height = 40;
-        this.name = "block";
-        this.label = "block";
-    }
 
     @Override
     public void update()

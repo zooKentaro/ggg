@@ -1,11 +1,15 @@
 Game game;
 
+// Debug Mode
+boolean debug = false;
+
 void settings() {
-    size(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
+    Config config = debug ? new ConfigDebug() : new ConfigProduction();
+    game = new Game(config);
+    size(game.config.SCREEN_WIDTH, game.config.SCREEN_HEIGHT);
 }
 
 void setup() {
-    game = new Game();
     game.setup();
 }
 
@@ -23,6 +27,8 @@ void keyPressed() {
     if (keyCode == 'A')   game.key.left2  = true;
     if (keyCode == 'S')   game.key.down2  = true;
     if (keyCode == 'W')   game.key.up2    = true;
+    if (keyCode == 'Z')   game.key.enter2 = true;
+    if (keyCode == 'X')   game.key.space2 = true;
 }
 
 void keyReleased() {
@@ -39,9 +45,11 @@ void keyReleased() {
     if (keyCode == 'A')   game.key.left2  = false;
     if (keyCode == 'S')   game.key.down2  = false;
     if (keyCode == 'W')   game.key.up2    = false;
+    if (keyCode == 'Z')   game.key.enter2 = false;
+    if (keyCode == 'X')   game.key.space2 = false;
 }
 
 void draw() {
-    background(Config.BACKGROUND_RESET_COLOR);
+    background(game.config.BACKGROUND_RESET_COLOR);
     game.play();
 }

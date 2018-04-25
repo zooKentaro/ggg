@@ -2,7 +2,7 @@ class TimeRecorder {
     public String table[];
 
     public TimeRecorder() {
-        this.table = new String[Config.MAX_TIME_RECODE_NUM];
+        this.table = new String[game.config.MAX_TIME_RECODE_NUM];
     }
 
     /**

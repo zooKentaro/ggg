@@ -1,13 +1,10 @@
-class Block extends GameObject {
-    public int speed = 2;
+class Shield extends GameObject {
 
-    public Block(int x, int y) {
+    Shield(int x, int y) {
         this.x = x;
         this.y = y;
-        this.width = 40;
-        this.height = 40;
-        this.name = "block";
-        this.label = "block";
+        this.width = game.field.sectionW();
+        this.height = game.field.sectionH();
     }
 
     @Override
@@ -18,6 +15,7 @@ class Block extends GameObject {
 
     @Override
     public void draw() {
+        fill(222, 222, 222);
         rect(this.x, this.y, this.width, this.height);
     }
 

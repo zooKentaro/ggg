@@ -7,10 +7,18 @@ abstract class GameObject {
     public int width = 0;
     // オブジェクトの縦幅 (px)
     public int height = 0;
+    // オブジェクトの描画領域の上下マージン
+    public int margin_width = 0;
+    // オブジェクトの描画領域の上下マージン
+    public int margin_height = 0;
     // オブジェクトがゲーム上に存在可能かどうか
     public boolean is_alive = true;
     // 画像
     public PImage texture;
+    // 名前
+    public String name = "object";
+    // タイプ
+    public String type = "object";
     // ラベル
     public String label = "";
 
@@ -30,6 +38,19 @@ abstract class GameObject {
         this.update();
 
         this.draw();
+    }
+
+    /**
+     * xとyをセットする
+     *
+     * @param int x x座標
+     * @param int y y座標
+     * @return GameObject
+     */
+    public GameObject set(int x, int y) {
+        this.x = x;
+        this.y = y;
+        return this;
     }
 
     /**
