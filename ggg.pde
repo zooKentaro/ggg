@@ -1,12 +1,18 @@
+import ddf.minim.*;
+Minim minim;
 Game game;
 
 // Debug Mode
 boolean debug = false;
 
 void settings() {
+    // ゲームを初期設定
     Config config = debug ? new ConfigDebug() : new ConfigProduction();
     game = new Game(config);
     size(game.config.SCREEN_WIDTH, game.config.SCREEN_HEIGHT);
+
+    // 音声出力ライブラリを初期化
+    minim = new Minim(this);
 }
 
 void setup() {
@@ -52,4 +58,10 @@ void keyReleased() {
 void draw() {
     background(game.config.BACKGROUND_RESET_COLOR);
     game.play();
+}
+
+void stop() {
+    // 音声出力をストップ
+    minim.stop();
+    super.stop();
 }
