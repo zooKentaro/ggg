@@ -5,6 +5,7 @@ class Shield extends GameObject {
         this.y = y;
         this.width = game.field.cellW();
         this.height = game.field.cellH();
+        this.texture = loadImage("t_block_hard.png");
     }
 
     @Override
@@ -16,7 +17,13 @@ class Shield extends GameObject {
     @Override
     public void draw() {
         fill(222, 222, 222);
-        rect(this.x, this.y, this.width, this.height);
+        image(
+            this.texture,
+            this.x - this.margin_width,
+            this.y - this.margin_height,
+            this.width + this.margin_width * 2,
+            this.height + this.margin_height * 2
+        );
     }
 
     @Override
