@@ -41,4 +41,8 @@ class UiBenchCell extends Ui {
     public void unfocus() {
         this.is_focused = false;
     }
+
+    public void setMob() {
+        //
+    }
 }

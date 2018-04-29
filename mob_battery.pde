@@ -1,16 +1,16 @@
 /**
  * 砲台
  */
-class UnitBattery extends UnitCombat implements Gun {
+class MobBattery extends MobCombat implements Gun {
     public int power_x;
     public int power_y;
 
-    public UnitBattery(String direction) {
+    public MobBattery(String direction) {
         this.width = 20;
         this.height = 20;
         this.action_interval_ms = 2000;
         this.name = "battery";
-        this.type = "unit";
+        this.type = "mob";
         this.power_y = 0;
 
         if (direction == "right") {

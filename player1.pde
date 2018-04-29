@@ -22,9 +22,9 @@ class Player1 extends Player {
             game.recoder.set("player1_change_mode", 300);
             this.mode = this.mode == "select_and_move" ? "pointer" : "select_and_move";
         }
-        if (this.mode == "pointer" && game.key.space && game.recoder.get(this.getUnitTimerKey()) == 0) {
-            this.putUnit();
-            game.recoder.set(this.getUnitTimerKey(), this.break_time_ms);
+        if (this.mode == "pointer" && game.key.space && game.recoder.get(this.getMobTimerKey()) == 0) {
+            this.putMob();
+            game.recoder.set(this.getMobTimerKey(), this.break_time_ms);
         }
     }
 

@@ -16,7 +16,7 @@ class Game {
     // タイムレコーダー
     public TimeRecorder recoder;
     // ファクトリ
-    public FactoryUnit factory;
+    public FactoryMob factory;
     // 戦闘フィールド
     public UiField field;
 
@@ -47,7 +47,7 @@ class Game {
         this.recoder = new TimeRecorder();
 
         // ファクトリを初期化
-        this.factory = new FactoryUnit();
+        this.factory = new FactoryMob();
 
         // メインのフィールド初期化
         // ゲームオブジェクトがフィールのに依存しているため、戦闘用のフィールドも

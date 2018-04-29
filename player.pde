@@ -16,18 +16,18 @@ class Player extends Mob implements ControllerInterface {
     }
 
     // ユニットを配置する
-    public void putUnit() {
-        Unit unit = (Unit)(game.factory.generate("three_way_battery", this.direction).set(this.pointer.x + this.pointer.width, this.pointer.y + this.pointer.height));
+    public void putMob() {
+        Mob mob = (Mob)(game.factory.generate("three_way_battery", this.direction).set(this.pointer.x + this.pointer.width, this.pointer.y + this.pointer.height));
         print("put");
         // 特定のラベルが付いているオブジェクトの上には置けないようにする.
-        String types[] = {"player", "unit"};
+        String types[] = {"player", "mob"};
         ArrayList<GameObject> obj = game.findByTypes(types);
         for (int i = 0; i < obj.size(); i++) {
-            if (unit.isHitting(obj.get(i))) {
+            if (mob.isHitting(obj.get(i))) {
                 return;
             }
         };
-        game.spawn(unit);
+        game.spawn(mob);
     }
 
     @Override
@@ -50,8 +50,8 @@ class Player extends Mob implements ControllerInterface {
         //
     }
 
-    protected String getUnitTimerKey() {
-        return "PUT_UNIT_" + this.hashCode();
+    protected String getMobTimerKey() {
+        return "PUT_Mob_" + this.hashCode();
     }
 
     public void onHit(GameObject object) {

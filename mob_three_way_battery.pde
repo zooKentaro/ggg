@@ -1,17 +1,19 @@
 /**
  * 3way砲台
  */
-class UnitThreeWayBattery extends UnitCombat implements Gun {
+class MobThreeWayBattery extends MobCombat implements Gun {
     public int power_x;
     public Sound se;
 
-    public UnitThreeWayBattery(String direction) {
-        this.width = 20;
-        this.height = 20;
+    public MobThreeWayBattery(String direction) {
+        this.width = 40;
+        this.height = 40;
         this.action_interval_ms = 5000;
         this.name = "three_way_battery";
-        this.type = "unit";
         this.se = new Sound("se_fire_heavy.mp3");
+        this.type = "mob";
+        this.texture = loadImage("enemy.png");
+
         if (direction == "right") {
             this.power_x = 15;
         } else {
@@ -21,6 +23,16 @@ class UnitThreeWayBattery extends UnitCombat implements Gun {
 
     public void action() {
         this.fire();
+    }
+
+    public void draw() {
+        image(
+            this.texture,
+            this.x - this.margin_width,
+            this.y - this.margin_height,
+            this.width + this.margin_width * 2,
+            this.height + this.margin_height * 2
+        );
     }
 
     public void fire() {
