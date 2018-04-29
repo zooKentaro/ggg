@@ -17,8 +17,8 @@ class Game {
     public TimeRecorder recoder;
     // ファクトリ
     public FactoryUnit factory;
-    // フィールド
-    public Field field;
+    // 戦闘フィールド
+    public UiField field;
 
     // ゲーム内に登場する全てのオブジェクトを格納する配列
     public GameObject objects[];
@@ -49,8 +49,10 @@ class Game {
         // ファクトリを初期化
         this.factory = new FactoryUnit();
 
-        // フィールド初期化
-        this.field = new Field();
+        // メインのフィールド初期化
+        // ゲームオブジェクトがフィールのに依存しているため、戦闘用のフィールドも
+        // メインシーンではなくゲーム本体に管理させる
+        this.field = new UiField();
 
         // スタート画面で初期化
         this.changeScene(SceneNum.START);

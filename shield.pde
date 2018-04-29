@@ -3,8 +3,8 @@ class Shield extends GameObject {
     Shield(int x, int y) {
         this.x = x;
         this.y = y;
-        this.width = game.field.sectionW();
-        this.height = game.field.sectionH();
+        this.width = game.field.cellW();
+        this.height = game.field.cellH();
     }
 
     @Override
