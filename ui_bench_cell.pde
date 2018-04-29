@@ -5,9 +5,9 @@ class UiBenchCell extends Ui {
     public boolean is_focused = false;
 
     public UiBenchCell(int x1, int y1, int w, int h) {
-        this.x1 = x1;
+        this.x1 = x1 + 1;
         this.y1 = y1;
-        this.w = w;
+        this.w = w - 2;
         this.h = h;
     }
 
@@ -22,12 +22,16 @@ class UiBenchCell extends Ui {
     }
 
     public void draw() {
+        strokeWeight(2);
         if (this.is_focused) {
-            fill(160, 160, 255);
+            stroke(160, 160, 255);
         } else {
-            fill(242, 225, 255);
+            stroke(225, 225, 255);
         }
+        fill(242, 225, 255);
         rect(this.x1(), this.y1(), this.w(), this.h());
+        strokeWeight(0);
+        noStroke();
     }
 
     public void focus() {
