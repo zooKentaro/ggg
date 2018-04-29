@@ -12,7 +12,7 @@ class Bullet extends GameObject {
         this.height = 15;
         this.name = "bullet";
         this.type = "bullet";
-        this.texture = loadImage("bullet.png");
+        this.texture = loadImage("t_bullet.png");
     }
 
     @Override

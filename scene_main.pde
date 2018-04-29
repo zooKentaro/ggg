@@ -4,8 +4,8 @@ class SceneMain extends Scene {
         game.spawn(new Player1(game.field.X(20) + 8, game.config.SCREEN_HEIGHT / 2));
         game.spawn(new Player2(game.field.X(1), game.config.SCREEN_HEIGHT / 2));
         setShields();
-        Sound bgm = new Sound("s_bgm.mp3");
-        bgm.play();
+        Sound bgm = new Sound("bgm_main.mp3");
+        bgm.loop();
     }
 
     @Override

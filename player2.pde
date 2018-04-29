@@ -9,7 +9,7 @@ class Player2 extends Player {
         this.name = "player2";
         this.type = "player";
         this.direction = "right";
-        this.texture = loadImage("unicoon.png");
+        this.texture = loadImage("t_unicoon.png");
         this.mode = "select_and_move";
         this.pointer = new Pointer2(this.x, this.y);
     }
