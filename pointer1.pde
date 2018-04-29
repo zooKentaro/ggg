@@ -10,9 +10,9 @@ class Pointer1 extends Pointer {
 
     @Override
     public void controll() {
-        if (game.key.left && this.x > game.field.fieldX1()) this.x -= speed;
-        if (game.key.right &&  this.x + this.height < game.field.fieldX2()) this.x += speed;
-        if (game.key.up && this.y > game.field.fieldY1()) this.y -= speed;
-        if (game.key.down &&  this.y + this.height < game.field.fieldY2()) this.y += speed;
+        if (game.key.left && this.x > game.field.x1()) this.x -= speed;
+        if (game.key.right &&  this.x + this.height < game.field.x2()) this.x += speed;
+        if (game.key.up && this.y > game.field.y1()) this.y -= speed;
+        if (game.key.down &&  this.y + this.height < game.field.y2()) this.y += speed;
     }
 }
