@@ -11,7 +11,7 @@ class Player1 extends Player {
         this.name = "player1";
         this.type = "player";
         this.direction = "left";
-        this.texture = loadImage("dragoon.png");
+        this.texture = loadImage("t_dragoon.png");
         this.mode = "select_and_move";
         this.pointer = new Pointer1(this.x, this.y);
     }
