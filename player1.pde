@@ -30,7 +30,7 @@ class Player1 extends Player {
 
     @Override
     public void controll() {
-        if (game.key.up && this.lock_up == false && this.y > game.field.y1())    this.y -= speed;
-        if (game.key.down && this.lock_down == false && this.y + this.height < game.field.y2())  this.y += speed;
+        if (game.key.up && this.lock_up == false && this.y > game.field.court.y1())    this.y -= speed;
+        if (game.key.down && this.lock_down == false && this.y + this.height < game.field.court.y2())  this.y += speed;
     }
 }

@@ -15,7 +15,7 @@ public abstract class Config {
     public int FIELD_WIDTH = 800;
 
     // 戦闘フィールドの縦幅
-    public int FIELD_HEIGHT = 400;
+    public int FIELD_HEIGHT = 440;
 
     // フレームをリセットする色
     public int BACKGROUND_RESET_COLOR = 255;

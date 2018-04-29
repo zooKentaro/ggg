@@ -48,18 +48,18 @@ class SceneMain extends Scene {
      * シールドを展開する
      */
     protected void setShields() {
-        int w = game.field.cellW();
-        int h = game.field.cellH();
-        int[] p1y = game.field.y1List();
+        int w = game.field.court.cellW();
+        int h = game.field.court.cellH();
+        int[] p1y = game.field.court.y1List();
 
         // Player1のシールドを展開
-        int x = game.field.getX(2);
+        int x = game.field.court.getX(2);
         for (int y = 0; y < p1y.length; y++) {
             game.spawn(new Shield(x, y * h));
         }
 
         // Player2のシールドを展開
-        x = game.field.getX(19);
+        x = game.field.court.getX(19);
         for (int y = 0; y < p1y.length; y++) {
             game.spawn(new Shield(x, y * h));
         }
