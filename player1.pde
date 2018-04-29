@@ -32,5 +32,7 @@ class Player1 extends Player {
     public void controll() {
         if (game.key.up && this.lock_up == false && this.y > game.field.court.y1())    this.y -= speed;
         if (game.key.down && this.lock_down == false && this.y + this.height < game.field.court.y2())  this.y += speed;
+        if (game.key.right) game.field.bench1.focusNext();
+        if (game.key.left) game.field.bench1.focusPrev();
     }
 }

@@ -3,6 +3,8 @@
  */
 class UiBench extends Ui {
     public UiBenchCell[] cells;
+    protected int idx;
+    protected int CURSOR_INTERVAL_MS = 80;
 
     public UiBench(int x1, int y1, int h) {
         this.x1 = x1;
@@ -24,10 +26,15 @@ class UiBench extends Ui {
             this.cells[i] = new UiBenchCell(this.x1() + (this.cellW() * i), this.y1(), this.cellW(), this.cellH());
             this.cells[i].setup();
         }
+
+        // 最初のセルにフォーカス
+        this.focusFirst();
     }
 
     public void update() {
-        //
+        for (int i = 0; i < this.cells.length; i++) {
+            this.cells[i].update();
+        }
     }
 
     public void draw() {
@@ -35,7 +42,48 @@ class UiBench extends Ui {
         rect(this.x1(), this.y1(), this.w(), this.h());
 
         for (int i = 0; i < this.cells.length; i++) {
-            this.cells[i].run();
+            this.cells[i].draw();
         }
+    }
+
+    public void focus(int idx) {
+        if (game.recoder.get(this.getCursrTimerKey()) != 0) {
+            return;
+        }
+        game.recoder.set(this.getCursrTimerKey(), this.CURSOR_INTERVAL_MS);
+        // 前のフォーカスを外す
+        this.cells[this.idx].unfocus();
+
+        // 新しくフォーカスする
+        this.setIdx(idx);
+        this.cells[idx].focus();
+    }
+
+    public void focusFirst() {
+        this.focus(0);
+    }
+
+    public void focusNext() {
+        if (this.idx + 1 >= this.cells.length) {
+            return;
+        }
+        this.focus(this.idx + 1);
+    }
+
+    public void focusPrev() {
+        if (this.idx - 1 < 0) {
+            return;
+        }
+        this.focus(this.idx - 1);
+    }
+
+    protected void setIdx(int idx) {
+        if (idx < this.cells.length) {
+            this.idx = idx;
+        }
+    }
+
+    protected String getCursrTimerKey() {
+        return "MOVE_CURSOR_" + this.hashCode();
     }
 }
