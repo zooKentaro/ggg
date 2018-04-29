@@ -28,6 +28,12 @@ class Bullet extends GameObject {
         }
     }
 
+    public void onHit(GameObject object) {
+        if (object.type == "shield") {
+            this.destroy();
+        }
+    }
+
     @Override
     protected void draw() {
         image(this.texture, this.x, this.y, this.width, this.height);

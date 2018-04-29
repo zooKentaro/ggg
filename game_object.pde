@@ -22,6 +22,9 @@ abstract class GameObject {
     // ラベル
     public String label = "";
 
+    // HP
+    public int hp = 0;
+
     // オブジェクトを更新する
     protected abstract void update();
 
@@ -38,6 +41,10 @@ abstract class GameObject {
         this.update();
 
         this.draw();
+    }
+
+    public void damage() {
+        //
     }
 
     /**
@@ -61,6 +68,11 @@ abstract class GameObject {
     public void checkHitting(GameObject object) {
         // 同じインスタンス同士ではfalse
         if (this.hashCode() == object.hashCode()) {
+            return;
+        }
+
+        // ゲームオブジェクトが生きていなければfalse
+        if (object.is_alive == false) {
             return;
         }
 

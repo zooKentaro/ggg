@@ -25,14 +25,14 @@ class SceneMain extends Scene {
         // 有効なオブジェクトのdraw()を毎フレーム呼び出す
         for (int i = 0; i < game.objects.length; i++) {
             // null の場合はその場で終了
-            if (game.objects[i] == null) {
+            if (game.objects[i] == null || game.objects[i].is_alive == false) {
                 continue;
             }
             if (game.objects[i].is_alive == true) {
                 // 当たり判定
                 for (int j = 0; j < game.objects.length; j++) {
                     // null の場合はその場で終了
-                    if (game.objects[j] == null) {
+                    if (game.objects[j] == null || game.objects[i].is_alive == false) {
                         continue;
                     }
                     // 当たっているかどうかを調べる
