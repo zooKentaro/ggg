@@ -1,18 +1,26 @@
 class SceneMain extends Scene {
+
     @Override
     public void setup() {
-        game.spawn(new Player1(game.field.X(20) + 8, game.config.SCREEN_HEIGHT / 2));
-        game.spawn(new Player2(game.field.X(1), game.config.SCREEN_HEIGHT / 2));
+        // 戦闘フィールドセットアップ
+        game.field.setup();
+
+        // シールド展開
         setShields();
+
+        // プレイヤー設置
+        game.spawn(new Player1(game.field.getX(20) + 8, game.config.SCREEN_HEIGHT / 2));
+        game.spawn(new Player2(game.field.getX(1), game.config.SCREEN_HEIGHT / 2));
+
+        // BGM再生
         Sound bgm = new Sound("bgm_main.mp3");
         bgm.loop();
     }
 
     @Override
     public void draw() {
-        // 背景描画
-        fill(220, 255, 220);
-        rect(game.config.FIELD_X, game.config.FIELD_Y, game.config.FIELD_WIDTH, game.config.FIELD_HEIGHT);
+        // 戦闘フィールド描画
+        game.field.run();
 
         // 有効なオブジェクトのdraw()を毎フレーム呼び出す
         for (int i = 0; i < game.objects.length; i++) {
@@ -40,18 +48,18 @@ class SceneMain extends Scene {
      * シールドを展開する
      */
     protected void setShields() {
-        int w = game.field.sectionW();
-        int h = game.field.sectionH();
-        int[] p1y = game.field.fieldY1List();
+        int w = game.field.cellW();
+        int h = game.field.cellH();
+        int[] p1y = game.field.y1List();
 
         // Player1のシールドを展開
-        int x = game.field.X(2);
+        int x = game.field.getX(2);
         for (int y = 0; y < p1y.length; y++) {
             game.spawn(new Shield(x, y * h));
         }
 
         // Player2のシールドを展開
-        x = game.field.X(19);
+        x = game.field.getX(19);
         for (int y = 0; y < p1y.length; y++) {
             game.spawn(new Shield(x, y * h));
         }
