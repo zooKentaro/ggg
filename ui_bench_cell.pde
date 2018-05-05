@@ -3,6 +3,7 @@
  */
 class UiBenchCell extends Ui {
     public boolean is_focused = false;
+    public Mob mob;
 
     public UiBenchCell(int x1, int y1, int w, int h) {
         this.x1 = x1 + 1;
@@ -32,6 +33,10 @@ class UiBenchCell extends Ui {
         rect(this.x1(), this.y1(), this.w(), this.h());
         strokeWeight(0);
         noStroke();
+
+        if (this.mob != null) {
+            image(this.mob.texture, this.x1(), this.y1(), this.w(), this.h());
+        }
     }
 
     public void focus() {
@@ -42,7 +47,8 @@ class UiBenchCell extends Ui {
         this.is_focused = false;
     }
 
-    public void setMob() {
-        //
+    public UiBenchCell setMob(Mob mob) {
+        this.mob = mob;
+        return this;
     }
 }
