@@ -43,6 +43,24 @@ abstract class GameObject {
         this.draw();
     }
 
+    /**
+     * オプジェクトの中央のX座標を返す
+     *
+     * @return int 中央のX座標
+     */
+    public int cX() {
+        return this.x + this.width / 2;
+    }
+
+    /**
+     * オプジェクトの中央のY座標を返す
+     *
+     * @return int 中央のY座標
+     */
+    public int cY() {
+        return this.y + this.height / 2;
+    }
+
     public void damage() {
         //
     }
@@ -57,6 +75,19 @@ abstract class GameObject {
     public GameObject set(int x, int y) {
         this.x = x;
         this.y = y;
+        return this;
+    }
+
+    /**
+     * 指定されたX,Y座標が中央になるようにxとyをセットする
+     *
+     * @param int x 中央のx座標
+     * @param int y 中央のy座標
+     * @return GameObject
+     */
+    public GameObject setCenter(int x, int y) {
+        this.x = x - this.width / 2;
+        this.y = y - this.height / 2;
         return this;
     }
 
