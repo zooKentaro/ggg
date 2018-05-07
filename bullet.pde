@@ -17,8 +17,21 @@ class Bullet extends GameObject {
 
     @Override
     protected void update() {
-        this.x += this.power_x;
-        this.y += this.power_y;
+        if (
+            this.x < game.field.court.x1() || this.x > game.field.court.x2() ||
+            this.y < game.field.court.y1() || this.y > game.field.court.y2()
+        ) {
+            this.is_alive = false;
+        } else {
+            this.x += this.power_x;
+            this.y += this.power_y;
+        }
+    }
+
+    public void onHit(GameObject object) {
+        if (object.type == "shield") {
+            this.destroy();
+        }
     }
 
     @Override

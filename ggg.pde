@@ -56,6 +56,7 @@ void keyReleased() {
 }
 
 void draw() {
+    noStroke();
     background(game.config.BACKGROUND_RESET_COLOR);
     game.play();
 }
