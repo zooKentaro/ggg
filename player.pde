@@ -29,6 +29,8 @@ class Player extends Mob implements ControllerInterface {
             }
         };
         game.spawn(mob);
+        this.se = new Sound("se_Installation3.mp3");
+        this.se.play();
     }
 
     @Override
