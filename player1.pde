@@ -14,6 +14,8 @@ class Player1 extends Player {
         this.texture = loadImage("t_dragoon.png");
         this.mode = "select_and_move";
         this.pointer = new Pointer1(this.x, this.y);
+        this.direction = "left";
+        this.bench = game.field.bench1;
     }
 
     public void update() {

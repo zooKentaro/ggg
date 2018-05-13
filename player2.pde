@@ -12,6 +12,8 @@ class Player2 extends Player {
         this.texture = loadImage("t_unicoon.png");
         this.mode = "select_and_move";
         this.pointer = new Pointer2(this.x, this.y);
+        this.direction = "right";
+        this.bench = game.field.bench2;
     }
 
     public void update() {

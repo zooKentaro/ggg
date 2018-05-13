@@ -4,6 +4,7 @@ class Player extends Mob implements ControllerInterface {
     public Pointer pointer;
     public String mode = "";
     public Sound se;
+    public UiBench bench;
 
     @Override
     protected void update() {
@@ -18,7 +19,16 @@ class Player extends Mob implements ControllerInterface {
 
     // ユニットを配置する
     public void putMob() {
-        Mob mob = (Mob)(game.factory.generate("battery", this.direction).setCenter(this.pointer.cX(), this.pointer.cY()));
+        // 選択されているモブを取得
+        Mob target_mob = this.bench.focusedMob();
+        if (target_mob == null) {
+            return;
+        }
+
+        // 選択されているモブを新しく初期化
+        Mob mob = game.factory.generate(target_mob.name, this.direction);
+        mob.setCenter(this.pointer.cX(), this.pointer.cY());
+
         // 特定のラベルが付いているオブジェクトの上には置けないようにする.
         String types[] = {"player", "mob"};
         ArrayList<GameObject> obj = game.findByTypes(types);

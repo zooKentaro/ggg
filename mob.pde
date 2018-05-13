@@ -37,4 +37,12 @@ abstract class Mob extends GameObject {
         this.lock_up    = false;
         this.lock_down  = false;
     }
+
+    /**
+     * ディレクションを設定する
+     */
+    public Mob setDirection(String direction) {
+        this.direction = direction;
+        return this;
+    }
 }
