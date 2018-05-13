@@ -6,13 +6,13 @@ class UiGaugePotato extends UiGauge {
     public int ppt;
 
     // 初期ポテトポイント
-    public int init_ppt = 0;
+    public int init_ppt = 100;
 
     // 最大ポテトポイント
     public int max_ppt;
 
     // 初期最大ポテトポイント
-    public int init_max_ppt = 100;
+    public int init_max_ppt = 1000;
 
     // 最大値を伸ばすために必要なポテトポイント
     public int limit_break_ppt = 300;
