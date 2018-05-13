@@ -3,8 +3,10 @@ class FactoryMob {
         switch (name) {
             case "three_way_battery":
                 return new MobThreeWayBattery(direction);
-             case "shadow":
+            case "shadow":
                 return new MobShadow(direction);
+            case "merman":
+                return new MobMerman(direction);
             default:
                 return new MobBattery(direction);
         }
