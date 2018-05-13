@@ -39,8 +39,8 @@ class MobThreeWayBattery extends MobCombat implements Gun {
 
     public void fire() {
         this.se.play();
-        game.spawn(new Bullet(this.x, this.y, this.power_x, 4));
-        game.spawn(new Bullet(this.x, this.y, this.power_x, 0));
-        game.spawn(new Bullet(this.x, this.y, this.power_x, -4));
+        game.spawn(new Bullet(this.x + this.power_x * 2, this.y + 4, this.power_x, 4));
+        game.spawn(new Bullet(this.x + this.power_x * 2, this.y, this.power_x, 0));
+        game.spawn(new Bullet(this.x + this.power_x * 2, this.y - 4, this.power_x, -4));
     }
 }
