@@ -21,11 +21,11 @@ abstract class Effect extends GameObject {
     }
 
     public void increment() {
-        this.frame_idx =  this.frame_idx < this.frame_length - 1 ? this.frame_idx + 1 : 0;
+        this.frame_idx = this.frame_idx < this.frame_length - 1 ? this.frame_idx + 1 : 0;
     }
 
     public void update() {
-        this.increment();
+        //
     }
 
     public void draw() {
@@ -35,6 +35,7 @@ abstract class Effect extends GameObject {
         if (this.frame_idx == this.frame_length - 1) {
             this.destroy();
         }
+        this.increment();
     }
 
     public void destroy() {
