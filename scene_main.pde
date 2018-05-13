@@ -5,6 +5,9 @@ class SceneMain extends Scene {
         // 戦闘フィールドセットアップ
         game.field.setup();
 
+        // HUDセットアップ
+        game.hud.setup();
+
         // シールド展開
         setShields();
 
@@ -21,6 +24,9 @@ class SceneMain extends Scene {
     public void draw() {
         // 戦闘フィールド描画
         game.field.run();
+
+        // HUD描画
+        game.hud.run();
 
         // 有効なオブジェクトのdraw()を毎フレーム呼び出す
         for (int i = 0; i < game.objects.length; i++) {

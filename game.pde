@@ -21,6 +21,8 @@ class Game {
     public FactorySound factory_sound;
     // 戦闘フィールド
     public UiField field;
+    // GUD
+    public UiHud hud;
 
     // ゲーム内に登場する全てのオブジェクトを格納する配列
     public GameObject objects[];
@@ -58,6 +60,8 @@ class Game {
         // ゲームオブジェクトがフィールのに依存しているため、戦闘用のフィールドも
         // メインシーンではなくゲーム本体に管理させる
         this.field = new UiField();
+
+        this.hud = new UiHud();
 
         // スタート画面で初期化
         this.changeScene(SceneNum.START);
