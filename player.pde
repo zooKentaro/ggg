@@ -5,6 +5,7 @@ class Player extends Mob implements ControllerInterface {
     public String mode = "";
     public Sound se;
     public UiBench bench;
+    public UiGaugePotato potato;
 
     @Override
     protected void update() {
@@ -21,7 +22,7 @@ class Player extends Mob implements ControllerInterface {
     public void putMob() {
         // 選択されているモブを取得
         Mob target_mob = this.bench.focusedMob();
-        if (target_mob == null) {
+        if (target_mob == null || target_mob.cost > this.potato.currentNum()) {
             return;
         }
 
@@ -37,6 +38,10 @@ class Player extends Mob implements ControllerInterface {
                 return;
             }
         };
+
+        // ポテトを消費
+        this.potato.consume(mob.cost);
+
         game.spawn(mob);
         this.se = new Sound("installation");
         this.se.play();

@@ -17,6 +17,18 @@ public abstract class Config {
     // 戦闘フィールドの縦幅
     public int FIELD_HEIGHT = 440;
 
+    // HUDの開始X座標
+    public int HUD_X = 0;
+
+    // HUDの開始Y座標
+    public int HUD_Y = 440;
+
+    // HUDの横幅
+    public int HUD_WIDTH = 1200;
+
+    // HUDの縦幅
+    public int HUD_HEIGHT = 160;
+
     // フレームをリセットする色
     public int BACKGROUND_RESET_COLOR = 255;
 

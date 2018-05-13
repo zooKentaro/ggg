@@ -1,5 +1,5 @@
 class Bullet extends GameObject {
-    public int damage = 20;
+    public int attack;
     public int power_x;
     public int power_y;
     public Sound se;
@@ -15,6 +15,8 @@ class Bullet extends GameObject {
         this.type = "bullet";
         this.texture = loadImage("t_bullet.png");
         this.se = new Sound("fire_heavy");
+        // 攻撃力
+        this.attack = 100;
     }
 
     @Override

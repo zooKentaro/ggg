@@ -6,6 +6,8 @@ abstract class Mob extends GameObject {
     public boolean lock_down  = false;
     public boolean lock_right = false;
     public boolean lock_left  = false;
+    public int cost;
+    public int hp = 1;
     public String direction;
 
     public void onHit(GameObject object) {
@@ -28,6 +30,18 @@ abstract class Mob extends GameObject {
             } else {
                 this.lock_down = false;
             }
+        }
+
+        switch (object.type) {
+            case "bullet":
+                Bullet bullet = (Bullet)object;
+                this.hp -= bullet.attack;
+                object.destroy();
+                break;
+        }
+
+        if (this.hp <= 0) {
+            this.destroy();
         }
     }
 

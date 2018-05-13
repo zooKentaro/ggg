@@ -14,6 +14,7 @@ class Player2 extends Player {
         this.pointer = new Pointer2(this.x, this.y);
         this.direction = "right";
         this.bench = game.field.bench2;
+        this.potato = game.hud.potato_gauge2;
     }
 
     public void update() {
