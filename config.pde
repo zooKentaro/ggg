@@ -25,4 +25,7 @@ public abstract class Config {
 
     // タイムレコードを格納する最大インデックス数
     public int MAX_TIME_RECODE_NUM = 99;
+
+    // se_fire_heavy の プレイヤー数
+    public int SE_PLAYER_LIMIT_FIRE_HEAVY = 5;
 }

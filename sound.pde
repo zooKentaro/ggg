@@ -5,9 +5,8 @@ class Sound {
     AudioPlayer player;
 
     Sound(String name) {
-        this.player = minim.loadFile(name);
+        this.player = game.factory_sound.generate(name);
     }
-
 
     /**
      * 音声を再生し、巻き戻す
