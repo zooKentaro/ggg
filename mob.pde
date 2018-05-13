@@ -6,6 +6,7 @@ abstract class Mob extends GameObject {
     public boolean lock_down  = false;
     public boolean lock_right = false;
     public boolean lock_left  = false;
+    public int cost;
     public String direction;
 
     public void onHit(GameObject object) {

@@ -12,13 +12,13 @@ class UiGaugePotato extends UiGauge {
     public int max_ppt;
 
     // 初期最大ポテトポイント
-    public int init_max_ppt = 50;
+    public int init_max_ppt = 100;
 
     // 最大値を伸ばすために必要なポテトポイント
     public int limit_break_ppt = 300;
 
-    // ポテト１につき 200フレーム
-    public int ppt_per_num = 50;
+    // ポテト１につき 100フレーム
+    public int ppt_per_num = 100;
 
     public int tmp_time;
 
@@ -74,5 +74,12 @@ class UiGaugePotato extends UiGauge {
 
     public int maxNum() {
         return int(floor(this.max_ppt / this.ppt_per_num));
+    }
+
+    public void consume(int num) {
+        this.ppt -= num * this.ppt_per_num;
+        if (this.ppt < 0) {
+            this.ppt = 0;
+        }
     }
 }

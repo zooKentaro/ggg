@@ -2,8 +2,8 @@
  * 戦闘フィールド
  */
 class UiHud extends Ui {
-    public UiGauge potato_gauge1;
-    public UiGauge potato_gauge2;
+    public UiGaugePotato potato_gauge1;
+    public UiGaugePotato potato_gauge2;
     public void setup() {
         // フィールドのX, Y座標
         this.x1 = game.config.HUD_X;
