@@ -8,7 +8,7 @@ class MobBattery extends MobCombat implements Gun {
     public MobBattery(String direction) {
         this.width = 40;
         this.height = 40;
-        this.action_interval_ms = 2000;
+        this.action_interval_ms = 1000;
         this.name = "battery";
         this.type = "mob";
         this.texture = loadImage("t_enemy.png");

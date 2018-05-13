@@ -32,9 +32,10 @@ class UiBench extends Ui {
 
         // セルに一時的にユニットを設定してみる
         this.setMob(0, (Mob)(new MobBattery("")));
-        this.setMob(1, (Mob)(new MobThreeWayBattery("")));
-        this.setMob(2, (Mob)(new MobMerman("")));
-        this.setMob(3, (Mob)(new MobShadow("")));
+        this.setMob(1, (Mob)(new MobTankPig(null)));
+        this.setMob(2, (Mob)(new MobThreeWayBattery("")));
+        this.setMob(3, (Mob)(new MobMerman("")));
+        this.setMob(4, (Mob)(new MobShadow("")));
     }
 
     public void update() {
