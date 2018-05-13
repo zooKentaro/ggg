@@ -4,8 +4,8 @@ class Pointer1 extends Pointer {
     public Pointer1(int x, int y) {
         this.x = x;
         this.y = y;
-        this.width = 15;
-        this.height = 15;
+        this.width = 10;
+        this.height = 10;
     }
 
     @Override

@@ -29,6 +29,9 @@ class UiBench extends Ui {
 
         // 最初のセルにフォーカス
         this.focusFirst();
+
+        // 1つ目のセルに一時的にユニットを設定してみる
+        this.setMob(0, (Mob)(game.factory.generate("battery", "")));
     }
 
     public void update() {
@@ -85,5 +88,19 @@ class UiBench extends Ui {
 
     protected String getCursrTimerKey() {
         return "MOVE_CURSOR_" + this.hashCode();
+    }
+
+    /**
+     * 指定されたセルにモブをセットする
+     * セルが存在しなければ何もしない
+     */
+    public void setMob(int idx, Mob mob) {
+        if (idx < this.cells.length) {
+            this.cells[idx].setMob(mob);
+        }
+    }
+
+    public Mob focusedMob() {
+        return this.cells[this.idx].mob;
     }
 }
