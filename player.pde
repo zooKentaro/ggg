@@ -3,6 +3,7 @@ class Player extends Mob implements ControllerInterface {
     public int break_time_ms = 500;
     public Pointer pointer;
     public String mode = "";
+    public Sound se;
 
     @Override
     protected void update() {
@@ -17,8 +18,7 @@ class Player extends Mob implements ControllerInterface {
 
     // ユニットを配置する
     public void putMob() {
-        Mob mob = (Mob)(game.factory.generate("three_way_battery", this.direction).set(this.pointer.x + this.pointer.width, this.pointer.y + this.pointer.height));
-        print("put");
+        Mob mob = (Mob)(game.factory.generate("battery", this.direction).set(this.pointer.x + this.pointer.width, this.pointer.y + this.pointer.height));
         // 特定のラベルが付いているオブジェクトの上には置けないようにする.
         String types[] = {"player", "mob"};
         ArrayList<GameObject> obj = game.findByTypes(types);
@@ -28,6 +28,8 @@ class Player extends Mob implements ControllerInterface {
             }
         };
         game.spawn(mob);
+        this.se = new Sound("installation");
+        this.se.play();
     }
 
     @Override

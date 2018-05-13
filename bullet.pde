@@ -2,6 +2,7 @@ class Bullet extends GameObject {
     public int damage = 20;
     public int power_x;
     public int power_y;
+    public Sound se;
 
     public Bullet(int x, int y, int power_x, int power_y) {
         this.x = x;
@@ -13,6 +14,7 @@ class Bullet extends GameObject {
         this.name = "bullet";
         this.type = "bullet";
         this.texture = loadImage("t_bullet.png");
+        this.se = new Sound("fire_heavy");
     }
 
     @Override

@@ -9,9 +9,15 @@ class FactorySound {
     protected AudioPlayer[] fire_heavy;
     protected int fire_heavy_idx;
 
+    // installation
+    protected AudioPlayer[] installation;
+    protected int installation_idx;
+
+
     public FactorySound() {
         this.bgm_main = this.load(new AudioPlayer[1], "bgm_main.mp3");
         this.fire_heavy = this.load(new AudioPlayer[game.config.SE_PLAYER_LIMIT_FIRE_HEAVY], "se_fire_heavy.mp3");
+        this.installation = this.load(new AudioPlayer[game.config.SE_PLAYER_LIMIT_INSTALLATION], "se_installation.mp3");
     }
 
     public AudioPlayer generate(String name) {
@@ -21,6 +27,9 @@ class FactorySound {
             case "fire_heavy":
                 this.fire_heavy_idx = this.increment(this.fire_heavy_idx, game.config.SE_PLAYER_LIMIT_FIRE_HEAVY);
                 return this.fire_heavy[this.fire_heavy_idx];
+            case "installation":
+                this.installation_idx = this.increment(this.installation_idx, game.config.SE_PLAYER_LIMIT_INSTALLATION);
+                return this.installation[this.installation_idx];
             default:
                 return null;
         }
