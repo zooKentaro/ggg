@@ -43,6 +43,16 @@ class Bullet extends GameObject {
 
     @Override
     public void destroy() {
+        // すぐに爆発するのではなく、少し進んで爆発させる
+        this.x += this.power_x * 1;
+        this.y += this.power_x * 1;
+
+        // 爆発
+        EffectBomNormal effect = new EffectBomNormal();
+        effect.x = this.x;
+        effect.y = this.y;
+        game.spawn(effect);
+
         this.is_alive = false;
     }
 }
