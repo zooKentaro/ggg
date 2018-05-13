@@ -19,7 +19,6 @@ class Player extends Mob implements ControllerInterface {
     // ユニットを配置する
     public void putMob() {
         Mob mob = (Mob)(game.factory.generate("battery", this.direction).set(this.pointer.x + this.pointer.width, this.pointer.y + this.pointer.height));
-        print("put");
         // 特定のラベルが付いているオブジェクトの上には置けないようにする.
         String types[] = {"player", "mob"};
         ArrayList<GameObject> obj = game.findByTypes(types);
@@ -29,7 +28,7 @@ class Player extends Mob implements ControllerInterface {
             }
         };
         game.spawn(mob);
-        this.se = new Sound("se_Installation3.mp3");
+        this.se = new Sound("installation");
         this.se.play();
     }
 

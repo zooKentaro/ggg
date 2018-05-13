@@ -14,7 +14,7 @@ class Bullet extends GameObject {
         this.name = "bullet";
         this.type = "bullet";
         this.texture = loadImage("t_bullet.png");
-        this.se = new Sound("se_fire_heavy.mp3");
+        this.se = new Sound("fire_heavy");
     }
 
     @Override

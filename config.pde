@@ -28,4 +28,7 @@ public abstract class Config {
 
     // se_fire_heavy の プレイヤー数
     public int SE_PLAYER_LIMIT_FIRE_HEAVY = 5;
+
+    //se_installation の プレイヤー数
+    public int SE_PLAYER_LIMIT_INSTALLATION = 2;
 }
