@@ -33,7 +33,6 @@ class Bullet extends GameObject {
     }
 
     public void onHit(GameObject object) {
-        println(object.type);
         if (object.type == "shield") {
             this.destroy();
         }
