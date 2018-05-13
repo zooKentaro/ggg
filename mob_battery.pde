@@ -14,6 +14,7 @@ class MobBattery extends MobCombat implements Gun {
         this.texture = loadImage("t_enemy.png");
         this.power_y = 0;
         this.cost = 2;
+        this.hp = 200;
 
         if (direction == "right") {
             this.power_x = 15;
@@ -37,7 +38,7 @@ class MobBattery extends MobCombat implements Gun {
     }
 
     public void fire() {
-        Bullet bullet = new Bullet(this.x, this.y, this.power_x, this.power_y);
+        Bullet bullet = new Bullet(this.x + this.power_x, this.y + this.power_y, this.power_x, this.power_y);
         game.spawn(bullet);
         bullet.se.play();
     }

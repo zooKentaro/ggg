@@ -14,6 +14,7 @@ class MobThreeWayBattery extends MobCombat implements Gun {
         this.type = "mob";
         this.texture = loadImage("t_cyame.png");
         this.cost = 5;
+        this.hp = 500;
 
         if (direction == "right") {
             this.power_x = 15;
