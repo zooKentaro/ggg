@@ -10,7 +10,7 @@ class MobThreeWayBattery extends MobCombat implements Gun {
         this.height = 40;
         this.action_interval_ms = 5000;
         this.name = "three_way_battery";
-        this.se = new Sound("se_fire_heavy.mp3");
+        this.se = new Sound("fire_heavy");
         this.type = "mob";
         this.texture = loadImage("t_enemy.png");
 

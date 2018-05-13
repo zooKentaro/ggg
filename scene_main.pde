@@ -13,7 +13,7 @@ class SceneMain extends Scene {
         game.spawn(new Player2(game.field.getX(1), game.config.SCREEN_HEIGHT / 2));
 
         // BGM再生
-        Sound bgm = new Sound("bgm_main.mp3");
+        Sound bgm = new Sound("bgm_main");
         bgm.loop();
     }
 

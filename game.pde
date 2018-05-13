@@ -15,8 +15,10 @@ class Game {
     public Key key;
     // タイムレコーダー
     public TimeRecorder recoder;
-    // ファクトリ
+    // モブファクトリ
     public FactoryMob factory;
+    // 音声ファクトリ
+    public FactorySound factory_sound;
     // 戦闘フィールド
     public UiField field;
 
@@ -46,8 +48,11 @@ class Game {
         // タイムレコーダーを初期化
         this.recoder = new TimeRecorder();
 
-        // ファクトリを初期化
+        // モブファクトリを初期化
         this.factory = new FactoryMob();
+
+        // 音声ファクトリを初期化
+        this.factory_sound = new FactorySound();
 
         // メインのフィールド初期化
         // ゲームオブジェクトがフィールのに依存しているため、戦闘用のフィールドも
