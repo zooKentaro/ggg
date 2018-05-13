@@ -92,6 +92,13 @@ abstract class GameObject {
     }
 
     /**
+     * スポンした時に発動する
+     */
+    public void cip() {
+        //
+    }
+
+    /**
      * objectと接触しているかどうかを確認する
      * 接触していれば、対象のオブジェクトを引数に
      * onHit() を呼び出す
