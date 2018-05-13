@@ -38,7 +38,7 @@ class MobBattery extends MobCombat implements Gun {
     }
 
     public void fire() {
-        Bullet bullet = new Bullet(this.x + this.power_x, this.y + this.power_y, this.power_x, this.power_y);
+        Bullet bullet = new Bullet(this.x + this.power_x * 2, this.y, this.power_x, this.power_y);
         game.spawn(bullet);
         bullet.se.play();
     }
