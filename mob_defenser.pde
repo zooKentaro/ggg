@@ -13,7 +13,7 @@ class MobDefenser extends MobCombat {
         this.type = "mob";
         this.texture = loadImage("t_defenser.png");
         this.power_y = 0;
-        this.cost = 7;
+        this.cost = 5;
         this.hp = 3000;
 
         if (direction == "right") {
