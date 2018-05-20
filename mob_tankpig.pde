@@ -19,7 +19,7 @@ class MobTankPig extends MobCombat implements Gun  {
         this.hp = 100;
         this.owner = player;
 
-        if (direction == "right") {
+        if (player != null && player.direction == "right") {
             this.power_x = 15;
         } else {
             this.power_x = -15;

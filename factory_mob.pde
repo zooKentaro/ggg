@@ -11,6 +11,8 @@ class FactoryMob {
                 return new MobDefenser(player);
             case "tankpig":
                 return new MobTankPig(player);
+            case "pin_point_fire":
+                return new SpellPinPointFire(player);
             default:
                 return new MobBattery(player.direction);
         }

@@ -5,7 +5,7 @@ class MobMerman extends MobCombat implements Gun {
     public int power_x;
     public Sound se;
 
-    public MobMerman(String direction) {
+    public MobMerman(Player player) {
         this.width = 40;
         this.height = 40;
         this.action_interval_ms = 1000;
@@ -16,7 +16,7 @@ class MobMerman extends MobCombat implements Gun {
         this.cost = 6;
         this.hp = 800;
 
-        if (direction == "right") {
+        if (player != null && player.direction == "right") {
             this.power_x = 20;
         } else {
             this.power_x = -20;
