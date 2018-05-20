@@ -82,4 +82,8 @@ class UiGaugePotato extends UiGauge {
             this.ppt = 0;
         }
     }
+
+    public void upMaxNum(int num) {
+        this.max_ppt += num * this.ppt_per_num;
+    }
 }

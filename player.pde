@@ -27,7 +27,7 @@ class Player extends Mob implements ControllerInterface {
         }
 
         // 選択されているモブを新しく初期化
-        Mob mob = game.factory.generate(target_mob.name, this.direction);
+        Mob mob = game.factory.generate(target_mob.name, this);
         mob.setCenter(this.pointer.cX(), this.pointer.cY());
 
         // 特定のラベルが付いているオブジェクトの上には置けないようにする.

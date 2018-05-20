@@ -1,20 +1,23 @@
 /**
- * 砲台
+ * タンクピッグ
  */
-class MobBattery extends MobCombat implements Gun {
+class MobTankPig extends MobCombat implements Gun  {
     public int power_x;
     public int power_y;
+    public Sound se;
+    public Player owner;
 
-    public MobBattery(String direction) {
-        this.width = 40;
-        this.height = 40;
-        this.action_interval_ms = 1000;
-        this.name = "battery";
+    public MobTankPig(Player player) {
+        this.width = 60;
+        this.height = 60;
+        this.action_interval_ms = 2000;
+        this.name = "tankpig";
+        this.se = new Sound("fire_heavy");
         this.type = "mob";
-        this.texture = loadImage("t_enemy.png");
-        this.power_y = 0;
-        this.cost = 2;
-        this.hp = 200;
+        this.texture = loadImage("t_tankpig.png");
+        this.cost = 3;
+        this.hp = 100;
+        this.owner = player;
 
         if (direction == "right") {
             this.power_x = 15;
@@ -27,7 +30,12 @@ class MobBattery extends MobCombat implements Gun {
         this.fire();
     }
 
-        public void draw() {
+    public void cip() {
+        // ポテトの最大値を上げる
+        this.owner.potato.upMaxNum(1);
+    }
+
+    public void draw() {
         image(
             this.texture,
             this.x - this.margin_width,
