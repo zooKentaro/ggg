@@ -6,9 +6,9 @@ class FactoryMob {
             case "shadow":
                 return new MobShadow(player.direction);
             case "merman":
-                return new MobMerman(direction);
+                return new MobMerman(player);
             case "defenser":
-                return new MobDefenser(direction);
+                return new MobDefenser(player);
             case "tankpig":
                 return new MobTankPig(player);
             default:
