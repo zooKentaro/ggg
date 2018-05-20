@@ -106,6 +106,7 @@ class Game {
         for (int i = 0; i < this.objects.length; i++) {
             if (this.objects[i] == null || this.objects[i].is_alive == false) {
                 this.objects[i] = object;
+                this.objects[i].cip();
                 return;
             }
         }

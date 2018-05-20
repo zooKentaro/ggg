@@ -38,9 +38,9 @@ class MobShadow extends MobCombat implements Gun {
     }
 
     public void fire() {
-        Bullet bullet = new Bullet(this.x + this.power_x * 15 , this.y + this.power_y, this.power_x, this.power_y);
+        Bullet bullet = new Bullet(this.x + this.power_x * 35 , this.y + this.power_y, this.power_x, this.power_y);
         bullet.texture = loadImage("t_bullet2.png");
-        bullet.attack = 300;
+        bullet.attack = 800;
         bullet.width = 40;
         bullet.height = 40;
         game.spawn(bullet);

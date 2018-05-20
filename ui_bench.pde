@@ -31,10 +31,11 @@ class UiBench extends Ui {
         this.focusFirst();
 
         // セルに一時的にユニットを設定してみる
-        this.setMob(0, (Mob)(game.factory.generate("battery", "")));
-        this.setMob(1, (Mob)(game.factory.generate("three_way_battery", "")));
-        this.setMob(2, (Mob)(game.factory.generate("merman", "")));
-        this.setMob(3, (Mob)(game.factory.generate("shadow", "")));
+        this.setMob(0, (Mob)(new MobBattery("")));
+        this.setMob(1, (Mob)(new MobTankPig(null)));
+        this.setMob(2, (Mob)(new MobThreeWayBattery("")));
+        this.setMob(3, (Mob)(new MobMerman("")));
+        this.setMob(4, (Mob)(new MobShadow("")));
     }
 
     public void update() {
