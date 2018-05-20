@@ -22,7 +22,7 @@ class Player extends Mob implements ControllerInterface {
     public void putMob() {
         // 選択されているモブを取得
         Mob target_mob = this.bench.focusedMob();
-        if (target_mob == null || target_mob.cost > this.potato.currentNum()) {
+        if (target_mob == null || target_mob.type == "spell" || target_mob.cost > this.potato.currentNum()) {
             return;
         }
 
@@ -45,6 +45,23 @@ class Player extends Mob implements ControllerInterface {
         game.spawn(mob);
         this.se = new Sound("installation");
         this.se.play();
+    }
+
+    // 呪文を唱える
+    public void castSpell() {
+        Mob target_mob = this.bench.focusedMob();
+        if (target_mob == null || target_mob.type != "spell" || target_mob.cost > this.potato.currentNum()) {
+            return;
+        }
+
+        Mob mob = game.factory.generate(target_mob.name, this);
+        mob.setCenter(this.pointer.cX(), this.pointer.cY());
+
+
+        // ポテトを消費
+        this.potato.consume(mob.cost);
+
+        game.spawn(mob);
     }
 
     @Override
@@ -73,7 +90,7 @@ class Player extends Mob implements ControllerInterface {
 
     public void onHit(GameObject object) {
         super.onHit(object);
-        if (object.type == "bullet") {
+        if (object.type == "bullet" && object.label != "spell") {
             this.destroy();
         }
     }

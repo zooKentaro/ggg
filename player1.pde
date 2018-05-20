@@ -27,6 +27,7 @@ class Player1 extends Player {
         }
         if (this.mode == "pointer" && game.key.space && game.recoder.get(this.getMobTimerKey()) == 0) {
             this.putMob();
+            this.castSpell();
             game.recoder.set(this.getMobTimerKey(), this.break_time_ms);
         }
     }

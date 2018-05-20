@@ -37,7 +37,8 @@ class UiBench extends Ui {
         this.setMob(2, (Mob)(new MobThreeWayBattery("")));
         this.setMob(3, (Mob)(new MobDefenser("")));
         this.setMob(4, (Mob)(new MobMerman("")));
-        this.setMob(5, (Mob)(new MobShadow("")));
+        this.setMob(5, (Mob)(new SpellPinPointFire(null)));
+        this.setMob(6, (Mob)(new MobShadow("")));
     }
 
     public void update() {
