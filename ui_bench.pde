@@ -35,6 +35,7 @@ class UiBench extends Ui {
         this.setMob(1, (Mob)(game.factory.generate("three_way_battery", "")));
         this.setMob(2, (Mob)(game.factory.generate("merman", "")));
         this.setMob(3, (Mob)(game.factory.generate("shadow", "")));
+        this.setMob(4, (Mob)(game.factory.generate("defenser", "")));
     }
 
     public void update() {
