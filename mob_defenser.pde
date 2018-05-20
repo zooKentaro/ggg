@@ -5,7 +5,7 @@ class MobDefenser extends MobCombat {
     public int power_x;
     public int power_y;
 
-    public MobDefenser(String direction) {
+    public MobDefenser(Player player) {
         this.width = 40;
         this.height = 40;
         this.action_interval_ms = 0;
@@ -16,7 +16,7 @@ class MobDefenser extends MobCombat {
         this.cost = 5;
         this.hp = 3000;
 
-        if (direction == "right") {
+        if (player != null && player.direction == "right") {
             this.power_x = 3;
         } else {
             this.power_x = -3;
